@@ -1,0 +1,6 @@
+name: spitoshare
+version: 0.0.1
+description: Spito Share
+dependencies:
+  web_components: ">=0.10.0"
+  browser: any

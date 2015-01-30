@@ -1,0 +1,164 @@
+#outer-container {
+
+}
+
+#site-drawer {
+  background-color: #ffffff;
+}
+
+#site-drawer-header {
+  background-color: #f0f0f0;
+}
+
+#site-drawer-menu {
+  height: 100%;
+}
+
+#site-bottom-copyright {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 50px;
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  color: #666666;
+}
+
+#site-header {
+  background-color: #f0f0f0;
+}
+
+  #site-header paper-icon-button {
+    margin: 0px;
+  }
+
+#site-header-title {
+  font-size: 18px;
+  font-weight: bolder;
+}
+
+  #site-header-title sup {
+    font-size: 8px;
+  }
+
+#site-header-logo {
+  text-align: center;
+}
+  #site-header-logo img {
+    width: 48px;
+    position: absolute;
+    left: calc(50% - 24px);
+    top: 8px;
+    vertical-align: middle;
+  }
+
+  @media (max-width: 500px) {
+    #site-header-logo img {
+      position: relative;
+      width: 48px;
+      left: auto;
+      top: auto;
+      vertical-align: middle;
+    }
+  }
+
+#outer-content-header {
+  padding: 30px 0 30px 0;
+}
+
+  #content-header {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+#outer-content {
+}
+
+  #content-container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+
+paper-tabs::shadow #selectionBar {
+  background-color: #920000;
+  height: 3px;
+}
+
+paper-tab {
+  background-color: #ffffff;
+  color: #666666;
+  font-weight: bold;
+  text-transform: uppercase;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+
+paper-tab.core-selected {
+  color: #333333;
+  font-weight: bolder;
+}
+
+paper-tab::shadow #ink {
+  color: #920000;
+  opacity: 0.5;
+}
+/*
+paper-tab#tab-url {
+  background-color: #1569e8;
+}
+
+paper-tab#tab-plain {
+  background-color: #d94532;
+}
+
+paper-tab#tab-src {
+  background-color: #e09e04;
+}
+*/
+
+#editor-tools {
+  position: relative;
+  width: 100%;
+}
+
+  #editor-tools-buttons ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+    #editor-tools-buttons ul li {
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+
+    #editor-exp-slider {
+      height: 10px;
+    }
+
+#editor-text {
+  margin: 20px 0;
+  width: 100%;
+  max-width: 100%;
+  min-height: 300px;
+}
+
+.editor-input-text {
+  box-sizing: border-box;
+  padding: 10px;
+  outline: none;
+  border: solid 1px #ffffff;
+  -moz-box-shadow: 0px 0px 5px 1px #bfbfbf;
+  -webkit-box-shadow: 0px 0px 5px 1px #bfbfbf;
+  box-shadow: 0px 0px 5px 1px #bfbfbf;
+  background-color: #fafafa;
+}
+  .editor-input-text:focus, .editor-input-text:active{
+    border: solid 1px #f0f0f0;
+    -moz-box-shadow: 0px 0px 5px 1px #9f9f9f;
+    -webkit-box-shadow: 0px 0px 5px 1px #9f9f9f;
+    box-shadow: 0px 0px 5px 1px #8f8f8f;
+  }
