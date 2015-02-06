@@ -1,3 +1,7 @@
+/*@import url(http://fonts.googleapis.com/css?family=Lato:400,700|Open+Sans:400,700&subset=latin);*/
+/*@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700&subset=latin);*/
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700&subset=latin);
+
 body {
   background-color: #ffffff;/*#F8F8F8;*/
   font-family: 'Open Sans', 'Lato', sans-serif;
@@ -5,6 +9,9 @@ body {
   font-weight: normal;
   line-height: 1.2em;
   margin: 15px;
+
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-touch-callout: none;
 }
 
 .group-clearfix:after {
@@ -117,16 +124,6 @@ body {
   vertical-align: middle;
 }
 
-@media (max-width: 500px) {
-  #site-header-logo img {
-    position: relative;
-    width: 48px;
-    left: auto;
-    top: auto;
-    vertical-align: middle;
-  }
-}
-
 #outer-content-header {
   padding: 30px 0 30px 0;
 }
@@ -138,13 +135,13 @@ body {
 }
 
 #outer-content {
+    padding: 20px 0 20px 0;
 }
 
 #content-container {
   width: 90%;
   max-width: 1000px;
   margin: 0 auto;
-    padding-bottom: 20px;
 }
 
 
@@ -191,9 +188,8 @@ paper-tab#tab-src {
 }
 
   #editor-tools-buttons {
-    position: absolute;
-    left:0;
-    top: 0;
+      float: left;
+      margin: 5px 0;
   }
   #editor-tools-buttons ul {
     list-style-type: none;
@@ -202,12 +198,16 @@ paper-tab#tab-src {
   }
   #editor-tools-buttons ul li {
     display: inline-block;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
+  }
+  #input-mode-tools {
+      float: right;
+      margin: 5px 0;
   }
 
 #editor {
   position: relative;
-  margin-top: 50px;
+  margin-top: 10px;
 }
 
 #editor-tools-bottom {
@@ -273,12 +273,14 @@ paper-tab#tab-src {
     #editor-exp-val {
       display: block;
         min-width: 200px;
-        line-height: 1.5;
+        /*line-height: 1;*/
+        font-size: 14px;
     }
       #editor-exp-val-text {
           display: inline-block;
           font-weight: bold;
           text-align: center;
+          vertical-align: middle;
       }
       #editor-exp-val-value {
           display: none;
@@ -286,6 +288,7 @@ paper-tab#tab-src {
           text-align: center;
           font-weight: bolder;
           color: #920000;
+          vertical-align: middle;
       }
       #editor-exp-val-unit {
           display: none;
@@ -293,6 +296,28 @@ paper-tab#tab-src {
         #editor-exp-val-value.editor-exp-val-visible,
         #editor-exp-val-unit.editor-exp-val-visible {
             display: inline-block;
+        }
+
+        #editor-exp-val-unit paper-radio-group paper-radio-button {
+            padding: 5px;
+        }
+        #editor-exp-val-unit paper-radio-group paper-radio-button::shadow #ink {
+            width: 32px;
+            height: 32px;
+            top: -8px;
+            left: -8px;
+        }
+        #editor-exp-val-unit paper-radio-group paper-radio-button::shadow #ink[checked] {
+            color: #920000;
+        }
+        #editor-exp-val-unit paper-radio-group paper-radio-button::shadow #onRadio {
+            background-color: #920000;
+        }
+        #editor-exp-val-unit paper-radio-group paper-radio-button[checked]::shadow #offRadio {
+            border-color: #920000;
+        }
+        #editor-exp-val-unit paper-radio-group paper-radio-button::shadow #radioLabel {
+            margin-left: 2px;
         }
 
   #editor-text {
@@ -303,6 +328,9 @@ paper-tab#tab-src {
   }
 
 .editor-input-text {
+    font-family: 'Open Sans', 'Lato', monospace;
+    font-size: 14px;
+    letter-spacing: 0.08em;
   box-sizing: border-box;
   padding: 10px;
   outline: none;
@@ -317,4 +345,24 @@ paper-tab#tab-src {
   -moz-box-shadow: 0px 0px 5px 1px #9f9f9f;
   -webkit-box-shadow: 0px 0px 5px 1px #9f9f9f;
   box-shadow: 0px 0px 5px 1px #8f8f8f;
+}
+
+@media (max-width: 650px) {
+    #site-header-logo img {
+        position: relative;
+        width: 48px;
+        left: auto;
+        top: auto;
+        vertical-align: middle;
+    }
+
+    #editor-tools-buttons {
+        float: none;
+        text-align: center;
+    }
+
+    #input-mode-tools {
+        float: none;
+        text-align: center;
+    }
 }

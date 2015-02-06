@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2103f84d-d344-4963-8e1d-e70d4ac4498f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/expiry_handler.dart" afterPath="$PROJECT_DIR$/lib/expiry_handler.dart" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/index.html" afterPath="$PROJECT_DIR$/web/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/style.css" afterPath="$PROJECT_DIR$/web/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SpitoShare.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,21 +37,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-18.4" vertical-offset="1012" max-vertical-offset="2624">
-              <caret line="92" column="52" selection-start-line="92" selection-start-column="52" selection-end-line="92" selection-end-column="52" />
+            <state vertical-scroll-proportion="0.41142857" vertical-offset="1488" max-vertical-offset="3008">
+              <caret line="111" column="34" selection-start-line="111" selection-start-column="34" selection-end-line="111" selection-end-column="34" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.75724137" vertical-offset="3739" max-vertical-offset="5216">
-              <caret line="268" column="45" selection-start-line="268" selection-start-column="45" selection-end-line="268" selection-end-column="45" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="2843" max-vertical-offset="5984">
+              <caret line="301" column="22" selection-start-line="301" selection-start-column="22" selection-end-line="301" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -99,8 +97,8 @@
         <option value="$PROJECT_DIR$/lib/component/expiry_handler.dart" />
         <option value="$PROJECT_DIR$/web/spitoshare_main.dart" />
         <option value="$PROJECT_DIR$/lib/expiry_handler.dart" />
-        <option value="$PROJECT_DIR$/web/index.html" />
         <option value="$PROJECT_DIR$/web/style.css" />
+        <option value="$PROJECT_DIR$/web/index.html" />
       </list>
     </option>
   </component>
@@ -714,18 +712,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/index.html">
+    <entry file="file://$PROJECT_DIR$/web/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.4" vertical-offset="1012" max-vertical-offset="2624">
-          <caret line="92" column="52" selection-start-line="92" selection-start-column="52" selection-end-line="92" selection-end-column="52" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="2843" max-vertical-offset="5984">
+          <caret line="301" column="22" selection-start-line="301" selection-start-column="22" selection-end-line="301" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/style.css">
+    <entry file="file://$PROJECT_DIR$/web/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.75724137" vertical-offset="3739" max-vertical-offset="5216">
-          <caret line="268" column="45" selection-start-line="268" selection-start-column="45" selection-end-line="268" selection-end-column="45" />
+        <state vertical-scroll-proportion="0.41142857" vertical-offset="1488" max-vertical-offset="3008">
+          <caret line="111" column="34" selection-start-line="111" selection-start-column="34" selection-end-line="111" selection-end-column="34" />
           <folding />
         </state>
       </provider>
