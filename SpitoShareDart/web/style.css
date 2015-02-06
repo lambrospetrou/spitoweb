@@ -125,7 +125,8 @@ body {
 }
 
 #outer-content-header {
-  padding: 30px 0 30px 0;
+  padding: 0;
+    margin: 0;
 }
 
 #content-header {
@@ -142,45 +143,8 @@ body {
   width: 90%;
   max-width: 1000px;
   margin: 0 auto;
+    font-size: 14px;
 }
-
-
-paper-tabs::shadow #selectionBar {
-  background-color: #920000;
-  height: 3px;
-}
-
-paper-tab {
-  background-color: #ffffff;
-  color: #666666;
-  font-weight: bold;
-  text-transform: uppercase;
-  word-break: break-all;
-  word-wrap: break-word;
-}
-
-paper-tab.core-selected {
-  color: #333333;
-  font-weight: bolder;
-}
-
-paper-tab::shadow #ink {
-  color: #920000;
-  opacity: 0.5;
-}
-/*
-paper-tab#tab-url {
-  background-color: #1569e8;
-}
-
-paper-tab#tab-plain {
-  background-color: #d94532;
-}
-
-paper-tab#tab-src {
-  background-color: #e09e04;
-}
-*/
 
 #editor-tools {
   position: relative;
@@ -274,7 +238,7 @@ paper-tab#tab-src {
       display: block;
         min-width: 200px;
         /*line-height: 1;*/
-        font-size: 14px;
+
     }
       #editor-exp-val-text {
           display: inline-block;
@@ -330,6 +294,7 @@ paper-tab#tab-src {
 .editor-input-text {
     font-family: 'Open Sans', 'Lato', monospace;
     font-size: 14px;
+    color: #333333;
     letter-spacing: 0.08em;
   box-sizing: border-box;
   padding: 10px;
@@ -344,7 +309,7 @@ paper-tab#tab-src {
   border: solid 1px #f0f0f0;
   -moz-box-shadow: 0px 0px 5px 1px #9f9f9f;
   -webkit-box-shadow: 0px 0px 5px 1px #9f9f9f;
-  box-shadow: 0px 0px 5px 1px #8f8f8f;
+  box-shadow: 0px 0px 5px 1px #9f9f9f;
 }
 
 @media (max-width: 650px) {

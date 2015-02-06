@@ -9,24 +9,13 @@
     <script src="packages/web_components/webcomponents.min.js"></script>
     <script src="packages/web_components/dart_support.js"></script>
 
-    <link rel="import" href="js_libs/bower_components/paper-input/paper-input.html">
-    <link rel="import" href="js_libs/bower_components/paper-input/paper-input-decorator.html">
-
     <link rel="import" href="js_libs/bower_components/paper-radio-group/paper-radio-group.html">
 
     <link rel="import" href="js_libs/bower_components/paper-button/paper-button.html">
-    <link rel="import" href="js_libs/bower_components/paper-menu-button/paper-menu-button.html">
     <link rel="import" href="js_libs/bower_components/paper-icon-button/paper-icon-button.html">
     <link rel="import" href="js_libs/bower_components/core-icon/core-icon.html">
     <link rel="import" href="js_libs/bower_components/core-icons/core-icons.html">
     <link rel="import" href="js_libs/bower_components/core-icons/social-icons.html">
-
-    <link rel="import" href="js_libs/bower_components/paper-dropdown/paper-dropdown.html">
-    <link rel="import" href="js_libs/bower_components/paper-item/paper-item.html">
-    <link rel="import" href="js_libs/bower_components/core-menu/core-menu.html">
-
-    <link rel="import" href="js_libs/bower_components/paper-tabs/paper-tabs.html">
-    <link rel="import" href="js_libs/bower_components/paper-tabs/paper-tab.html">
 
     <link rel="import" href="js_libs/bower_components/core-toolbar/core-toolbar.html">
     <link rel="import" href="js_libs/bower_components/core-menu/core-menu.html">
@@ -37,15 +26,6 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.min.js"></script>
-
-    <!-- The noUiSlider script and stylesheet -->
-    <!-- Use the files with *.min.* for the minified versions. -->
-    <!--<link href="js_libs/noUiSlider.7.0.9/jquery.nouislider.min.css" rel="stylesheet">-->
-    <!--<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/ui-lightness/jquery-ui.css">-->
-    <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
-    <!-- Use the 'all' version to get all documented features. -->
-    <!-- Includes wNumb, libLink and the pips add-on -->
-    <!--<script src="js_libs/noUiSlider.7.0.9/jquery.nouislider.all.min.js" type="text/javascript"></script>-->
 
 </head>
 <body>
@@ -73,10 +53,9 @@
 
             <core-header-panel main>
                 <core-toolbar id="site-header">
-                    <!--<paper-icon-button id="navicon" icon="menu" on-tap="{{toggleDrawer}}></paper-icon-button>-->
                     <paper-icon-button id="navicon" icon="menu" core-drawer-toggle></paper-icon-button>
                       <span id="site-header-title">
-                          <span id="site-header-logo"><!--<paper-icon-button icon="polymer"></paper-icon-button>-->
+                          <span id="site-header-logo">
                               <span><img src="imgs/spito-share.png"></span>
                           </span>
                           Spito Share <sup><em>BETA</em></sup>
@@ -88,16 +67,11 @@
                     <paper-icon-button id="btnFindSpit" icon="search" title="Search for a spit"></paper-icon-button>
                 </core-toolbar>
 
-                <!--
                 <div id="outer-content-header">
                     <div id="content-header">
-                      <paper-tabs selected="0">
-                        <paper-tab id="tab-url">URL Redirect</paper-tab>
-                        <paper-tab id="tab-src">Text &amp; Source Code</paper-tab>
-                      </paper-tabs>
+                        <!-- EMPTY FOR THE MOMENT -->
                     </div>
                 </div>
-                -->
 
                 <div id="outer-content">
                     <div id="content-container" class="content">
@@ -154,14 +128,6 @@
                                                     <paper-radio-button name="M" label="Months"></paper-radio-button>
                                                 </paper-radio-group>
                                             </span>
-                                            <!--
-                                            <select id="editor-exp-val-unit">
-                                                <option value="m">minutes</option>
-                                                <option value="h">hours</option>
-                                                <option value="d">days</option>
-                                                <option value="M">months</option>
-                                            </select>
-                                            -->
                                         </div>
                                     </div>
                                 </li>
