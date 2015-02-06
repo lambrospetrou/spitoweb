@@ -235,13 +235,14 @@ paper-tab#tab-src {
 
     #editor-exp-slider {
       /*height: 200px;*/
+        margin: 10px auto;
         width: 600px;
         max-width: 60%;
-      display: inline-block;
+      display: block;
       font-size: 80%;
     }
     #editor-exp-val {
-      display: inline-block;
+      display: block;
         min-width: 200px;
         line-height: 1.5;
     }
@@ -266,12 +267,6 @@ paper-tab#tab-src {
         }
 
   #editor-text {
-    /*
-    position: absolute;
-    right: 80px;
-    top: 0;
-    width: calc(100% - 80px);
-    */
     margin: 10px 0;
     width: 100%;
     max-width: 100%;
