@@ -50,7 +50,7 @@ class ExpiryHandler {
 
   String _getExpiryText(int value) {
     if (value == 0) {
-      return "never expiry";
+      return "never expires";
     } else {
       return "expire in";
     }
