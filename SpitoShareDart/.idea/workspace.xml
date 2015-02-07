@@ -2,6 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2103f84d-d344-4963-8e1d-e70d4ac4498f" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/packages" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/imgs/packages" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/js_libs/packages" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/js_libs/noUiSlider.7.0.9/packages" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/spito_router.dart" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/.pub/bin/angular/expression_extractor.dart.snapshot" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/.pub/bin/angular/parser_generator_for_spec.dart.snapshot" afterPath="" />
