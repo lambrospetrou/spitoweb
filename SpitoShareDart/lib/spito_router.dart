@@ -7,7 +7,7 @@ import 'package:route/client.dart';
 class SpitoRouter {
 
   UrlPattern _mHomeUrl, _mHomeStrippedUrl, _mHomeRootUrl;
-  UrlPattern _mViewUrl;
+  UrlPattern _mViewSpitUrl;
   final UrlPattern anyUrl = new UrlPattern(r'(.*)');
 
   // this is the path for our application root
@@ -21,7 +21,7 @@ class SpitoRouter {
     _mHomeUrl = new UrlPattern(_mRootPath + r'#/(.*)');
     _mHomeStrippedUrl = new UrlPattern(_mRootPath + r'/');
     _mHomeRootUrl = new UrlPattern(_mRootPath);
-    _mViewUrl = new UrlPattern(_mRootPath + r'#/view/(\w+)');
+    _mViewSpitUrl = new UrlPattern(_mRootPath + r'#/view/(\w*)');
   }
 
   set OnViewHandler(void fn(String id)) => this._fnOnViewHandler = fn;
@@ -30,7 +30,7 @@ class SpitoRouter {
 
   void listen() {
     _mRouter = new Router()
-      ..addHandler(_mViewUrl, _showView)
+      ..addHandler(_mViewSpitUrl, _showView)
       ..addHandler(_mHomeUrl, _showHome)
       ..addHandler(_mHomeRootUrl, _redirectToHome)
       ..addHandler(_mHomeStrippedUrl, _redirectToHome)
@@ -54,7 +54,8 @@ class SpitoRouter {
 
   void _showView(String path) {
     window.console.log('view: ${path}');
-    var id = _mViewUrl.parse(path)[0];
+    var id = _mViewSpitUrl.parse(path)[0];
+    window.console.log(id);
     if (_fnOnViewHandler != null) _fnOnViewHandler(id);
   }
 

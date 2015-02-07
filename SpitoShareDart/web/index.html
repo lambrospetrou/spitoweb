@@ -4,7 +4,6 @@
 <head>
     <meta charset="utf-8">
     <title>Spito Share v1.0</title>
-    <link rel="stylesheet" href="style.css">
 
     <script src="packages/web_components/webcomponents.min.js"></script>
     <script src="packages/web_components/dart_support.js"></script>
@@ -26,6 +25,9 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style_view.css">
 
 </head>
 <body>
@@ -63,8 +65,8 @@
 
                     <span flex></span>
 
-                    <a href="#/view/5"><paper-icon-button id="btnNewSpit" icon="create" title="Create new spit"></paper-icon-button></a>
-                    <a href="#/"><paper-icon-button id="btnFindSpit" icon="search" title="Search for a spit"></paper-icon-button></a>
+                    <a href="#/"><paper-icon-button id="btnNewSpit" icon="create" title="Create new spit"></paper-icon-button></a>
+                    <a href="#/view/"><paper-icon-button id="btnFindSpit" icon="search" title="Search for a spit"></paper-icon-button></a>
                 </core-toolbar>
 
                 <div id="outer-content-header">
@@ -74,64 +76,119 @@
                 </div>
 
                 <div id="outer-content">
-                    <div id="content-container" class="content">
+                    <div id="content-container">
 
-                        <div id="editor-tools" class="group-clearfix">
+                        <div id="home-page" class="content">
 
-                            <div id="input-mode-tools">
-                                <paper-radio-group selected="url">
-                                    <paper-radio-button name="url" label="URL shortener"></paper-radio-button>
-                                    <paper-radio-button name="src" label="Text &amp; Source Code"></paper-radio-button>
-                                </paper-radio-group>
+                            <div id="editor-tools" class="group-clearfix">
+
+                                <div id="input-mode-tools">
+                                    <paper-radio-group id="spit-type-radio-group" selected="url">
+                                        <paper-radio-button name="url" value="url" label="URL shortener"></paper-radio-button>
+                                        <paper-radio-button name="src" value="src" label="Text &amp; Source Code"></paper-radio-button>
+                                    </paper-radio-group>
+                                </div>
+
+                                <div id="editor-tools-buttons">
+                                    <ul>
+                                        <li>
+                                            <paper-button id="btnEditorCreate">
+                                                create
+                                            </paper-button>
+                                        </li>
+                                        <li>
+                                            <paper-button>
+                                                clear
+                                            </paper-button>
+                                        </li>
+                                        <li>
+                                            <paper-button raised disabled>
+                                                copy
+                                            </paper-button>
+                                        </li>
+                                    </ul>
+                                </div>
+
                             </div>
 
-                            <div id="editor-tools-buttons">
-                                <ul>
-                                    <li>
-                                        <paper-button id="btnEditorCreate">
-                                            create
-                                        </paper-button>
-                                    </li>
-                                    <li>
-                                        <paper-button ng-click="toggle()">
-                                            clear
-                                        </paper-button>
-                                    </li>
-                                    <li>
-                                        <paper-button raised ng-click="toggle()" disabled>
-                                            copy
-                                        </paper-button>
-                                    </li>
-                                </ul>
+                            <div id="spito-editor">
+
+                                <div id="editor">
+                                <textarea id="editor-text" class="editor-input-text disabled-element" name="editor-text"
+                                          spellcheck="true"
+                                          autofocus required=""
+                                          placeholder="Enter your text Or your source code here"></textarea>
+                                    <input id="editor-url" class="editor-input-text" name="editor-text" type="url"
+                                           spellcheck="true"
+                                           autofocus required=""
+                                           placeholder="http(s)://yourdomain.com/a-very-long-path-"/>
+                                </div>
+
+                                <div id="editor-tools-bottom">
+                                    <ul>
+                                        <li>
+                                            <div id="editor-exp">
+                                                <div id="editor-exp-slider" class="editor-exp-slider"></div>
+                                                <div id="editor-exp-val">
+                                                    <span id="editor-exp-val-text"></span>
+                                                    <span id="editor-exp-val-value"></span>
+                                                <span id="editor-exp-val-unit">
+                                                    <paper-radio-group selected="m">
+                                                        <paper-radio-button name="m"
+                                                                            label="Minutes"></paper-radio-button>
+                                                        <paper-radio-button name="h" label="Hours"></paper-radio-button>
+                                                        <paper-radio-button name="d" label="Days"></paper-radio-button>
+                                                        <paper-radio-button name="M"
+                                                                            label="Months"></paper-radio-button>
+                                                    </paper-radio-group>
+                                                </span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+
                             </div>
-
                         </div>
 
-                        <div id="editor">
-                            <textarea id="editor-text" class="editor-input-text" name="editor-text" spellcheck="true"
-                                      autofocus></textarea>
-                        </div>
+                        <div id="view-page" class="content disabled-element">
+                            <div id="search-tools">
+                                <form id="view-spit-form" onsubmit="return false;">
+                                    <input id="spit-id" class="editor-input-text" name="spit-id" maxlength="20" type="text"
+                                           autofocus required="" placeholder="Enter the Spit ID you want to display"/>
+                                    <button type="submit"><paper-button raised="">View Spit</paper-button></button>
+                                </form>
 
-                        <div id="editor-tools-bottom">
-                            <ul>
-                                <li>
-                                    <div id="editor-exp">
-                                        <div id="editor-exp-slider" class="editor-exp-slider"></div>
-                                        <div id="editor-exp-val">
-                                            <span id="editor-exp-val-text"></span>
-                                            <span id="editor-exp-val-value"></span>
-                                            <span id="editor-exp-val-unit">
-                                                <paper-radio-group selected="m">
-                                                    <paper-radio-button name="m" label="Minutes"></paper-radio-button>
-                                                    <paper-radio-button name="h" label="Hours"></paper-radio-button>
-                                                    <paper-radio-button name="d" label="Days"></paper-radio-button>
-                                                    <paper-radio-button name="M" label="Months"></paper-radio-button>
-                                                </paper-radio-group>
-                                            </span>
+                                <div id="view-spit-errors" class="disabled-element"></div>
+
+                                <article id="view-spit-information">
+                                    <header class="spit-header group-clearfix">
+                                        <div class="float-left">
+                                            <h1 id="spit-header" title="Click and then CRTL + C to copy the link">{{.Spit.AbsoluteURL}}</h1>
+                                            <section class="spit-meta-top">
+                                                <ul>
+                                                    <li><a id="spit-absurl" href="{{.Spit.AbsoluteURL}}" title="visit spit link"><paper-button raised>Visit Spit link</paper-button></a></li>
+                                                </ul>
+                                            </section>
                                         </div>
-                                    </div>
-                                </li>
-                            </ul>
+                                        <div class="float-right">
+                                            <img id="spit-link-qr" src="http://chart.apis.google.com/chart?chs=100x100&cht=qr&choe=UTF-8&chl="/>
+                                        </div>
+                                    </header>
+
+                                    <section class="spit-body">
+                                        <section class="spit-meta-body">
+                                            <ul>
+                                                <li><span class="heading">expiration in (seconds)</span><span id="spit-exp-time">{{.Spit.RemainingExpiration}}</span></li>
+                                                <li><span class="heading">created</span><span id="spit-date">{{ .Spit.FormattedCreatedTime }}</span></li>
+                                                <li><span class="heading">clicks</span><span id="spit-clicks">{{ .Spit.Clicks }}</span></li>
+                                            </ul>
+                                        </section>
+                                        <textarea class="spit-content" id="spit-content" readonly></textarea>
+                                    </section>
+                                </article>
+
+                            </div>
                         </div>
 
                     </div>

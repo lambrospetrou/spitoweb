@@ -59,12 +59,12 @@ class SpitoAPI {
         HttpRequest res = e.target as HttpRequest;
         if (res.status == 200) {
           SpitoAPIResult apiResult = new SpitoAPIResult(
-              RES_OK, 'Successfully fetched Spit ${id}}!', new Spit.fromJson(res.responseText), res
+              RES_OK, 'Successfully fetched Spit ${id}!', new Spit.fromJson(res.responseText), res
           )..Duration = duration;
           completer.complete(apiResult);
         } else {
           SpitoAPIResult apiResult = new SpitoAPIResult(
-              RES_FAIL, 'The response is not OK:200 [${res.responseText}}]', null, res
+              RES_FAIL, 'The response is not OK:200 [${res.responseText}]', null, res
           )..Duration = duration;;
           completer.completeError(apiResult);
         }
