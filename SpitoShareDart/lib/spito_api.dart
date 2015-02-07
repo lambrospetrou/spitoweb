@@ -15,7 +15,7 @@ class SpitoAPI {
     this._mRootDomain = rootDomain.endsWith('/') ? rootDomain.substring(0, rootDomain.length - 1) : rootDomain;
   }
 
-  Future<SpitAPIResult> CreateSpit(String content, String spit_type, int exp, String expMode) {
+  Future<SpitoAPIResult> CreateSpit(String content, String spit_type, int exp, String expMode) {
     int millis = new DateTime.now().millisecondsSinceEpoch;
 
     FormData formData = new FormData()
@@ -23,7 +23,7 @@ class SpitoAPI {
       ..append('exp', exp.toString())
       ..append('content', content);
 
-    var completer = new Completer<SpitAPIResult>();
+    var completer = new Completer<SpitoAPIResult>();
     HttpRequest request = new HttpRequest()
       ..open('POST', this._mRootDomain + '/api/v1/spits')
       //..setRequestHeader("Content-type", "application/json")
@@ -32,12 +32,12 @@ class SpitoAPI {
         // e.target is the HttpRequest object
         HttpRequest res = e.target as HttpRequest;
         if (res.status == 200) {
-          SpitAPIResult apiResult = new SpitAPIResult(
+          SpitoAPIResult apiResult = new SpitoAPIResult(
             RES_OK, 'Successfully created new Spit!', new Spit.fromJson(res.responseText), res
           )..Duration = duration;
           completer.complete(apiResult);
         } else {
-          SpitAPIResult apiResult = new SpitAPIResult(
+          SpitoAPIResult apiResult = new SpitoAPIResult(
               RES_FAIL, 'The response is not OK:200 [${res.responseText}}]', null, res
           )..Duration = duration;;
           completer.completeError(apiResult);
@@ -47,10 +47,36 @@ class SpitoAPI {
     return completer.future;
   }
 
+  Future<SpitoAPIResult> GetSpit(String id) {
+    int millis = new DateTime.now().millisecondsSinceEpoch;
+
+    var completer = new Completer<SpitoAPIResult>();
+    HttpRequest request = new HttpRequest()
+      ..open('GET', this._mRootDomain + '/api/v1/spits/${id}')
+      ..onLoadEnd.listen((e) {
+        int duration = (new DateTime.now().millisecondsSinceEpoch) - millis;
+        // e.target is the HttpRequest object
+        HttpRequest res = e.target as HttpRequest;
+        if (res.status == 200) {
+          SpitoAPIResult apiResult = new SpitoAPIResult(
+              RES_OK, 'Successfully fetched Spit ${id}}!', new Spit.fromJson(res.responseText), res
+          )..Duration = duration;
+          completer.complete(apiResult);
+        } else {
+          SpitoAPIResult apiResult = new SpitoAPIResult(
+              RES_FAIL, 'The response is not OK:200 [${res.responseText}}]', null, res
+          )..Duration = duration;;
+          completer.completeError(apiResult);
+        }
+      })
+      ..send();
+    return completer.future;
+  }
+
 }
 
-class SpitAPIResult {
-  SpitAPIResult(this._mStatus, this._mMsg, this._mSpit, this._mResponse) {}
+class SpitoAPIResult {
+  SpitoAPIResult(this._mStatus, this._mMsg, this._mSpit, this._mResponse) {}
 
   HttpRequest _mResponse;
 

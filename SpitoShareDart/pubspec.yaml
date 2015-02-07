@@ -4,3 +4,4 @@ description: Spito Share
 dependencies:
   web_components: ">=0.10.0"
   browser: any
+  route: any
