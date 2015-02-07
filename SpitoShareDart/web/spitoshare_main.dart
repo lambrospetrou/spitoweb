@@ -1,10 +1,9 @@
 library spitoshare;
 
 import 'dart:html';
-import 'package:route/url_pattern.dart';
-import 'package:route/client.dart';
 import 'package:spitoshare/expiry_handler.dart';
 import 'package:spitoshare/spito_api.dart';
+import 'package:spitoshare/spito_router.dart';
 
 void main() {
 
@@ -27,27 +26,16 @@ void main() {
   print('loc: ${window.location}');
   print('pathname: ${window.location.pathname}');
 
-  var router = new Router()
-    ..addHandler(viewUrl, showView)
-    ..addHandler(homeUrl, showHome)
-    ..addHandler(homeRootUrl, redirectToHome)
-    ..addHandler(homeStrippedUrl, redirectToHome)
-    ..addHandler(anyUrl, showAny)
-    ..listen();
+  SpitoRouter router = new SpitoRouter(window.location.pathname);
+  router.OnViewHandler = (String id) => viewPageHandler(spitoApi, id);
+  router.OnHomeHandler = homePageHandler;
+  router.OnAnyHandler = anyPageHandler;
+  router.listen();
   router.handle(window.location.pathname + window.location.hash);
 }
 
-String path = window.location.pathname;
-final homeUrl = new UrlPattern(path + r'#/(.*)');
-final homeStrippedUrl = new UrlPattern(path + r'/');
-final homeRootUrl = new UrlPattern(path);
-final viewUrl = new UrlPattern(path + r'#/view/(\w+)');
-final anyUrl = new UrlPattern(r'(.*)');
-
-void showView(String path) {
-  window.console.log('view: ${path}');
-  SpitoAPI spitoApi = new SpitoAPI("http://localhost:40090/");
-  var id = viewUrl.parse(path)[0];
+viewPageHandler(SpitoAPI spitoApi, String id) {
+  window.console.info('main controller:: view :: ${id}');
   spitoApi.GetSpit(id).then((SpitoAPIResult result) {
     window.console.info(result);
   }).catchError((SpitoAPIResult result) {
@@ -55,26 +43,12 @@ void showView(String path) {
   });
 }
 
-void showHome(String path) {
-  window.console.log('home: ${path}');
-  var actualHash = homeUrl.parse(path);
-  window.console.log('home: ${actualHash}');
-  window.console.log('home: ${actualHash[0]}');
+homePageHandler(String path) {
+  window.console.info('main controller:: home :: ${path}');
 }
 
-void redirectToHome(String path) {
-  window.console.log('home: ${path} redirecting to proper home');
-  gotoHome();
-}
-
-void showAny(String path) {
-  window.console.log('any: ${path}');
-  gotoHome();
-}
-
-void gotoHome() {
-  //window.location.pathname = '';
-  window.location.hash = '#/';
+anyPageHandler (String path) {
+  window.console.info('main controller:: any :: ${path}');
 }
 
 void handleNewSpitResult(SpitoAPIResult result) {

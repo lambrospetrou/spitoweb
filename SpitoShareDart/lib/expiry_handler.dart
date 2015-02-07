@@ -39,7 +39,6 @@ class ExpiryHandler {
         'step': 1,
         'slide': (event, ui) {
           int sliderVal = ui['value'];
-          print(sliderVal);
           _updateExpiryValue(sliderVal, _mExpValUnitElem, _mExpValValueElem, _mExpValTextElem);
         },
         'change': (event, ui) {
