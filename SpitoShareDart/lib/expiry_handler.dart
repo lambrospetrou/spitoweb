@@ -17,6 +17,9 @@ class ExpiryHandler {
   Element _mExpValUnitElem;
   Element _mExpValTextElem;
 
+  int _mExpiryValue;
+  String _mExpiryUnit;
+
   ExpiryHandler(Element container) {
     _mContainer = container;
     _init(_mContainer);
@@ -30,6 +33,9 @@ class ExpiryHandler {
 
     _mExpValUnitElem = container.querySelector('#editor-exp-val-unit');
     _mExpValTextElem = container.querySelector('#editor-exp-val-text');
+
+    _mExpiryUnit = 'm'; // minutes by default
+    _mExpiryValue = 0;  // 0 by default
 
     js.context.callMethod('jQuery', [_mSliderDiv]).callMethod('slider', [new js.JsObject.jsify({
         'orientation': 'horizontal',
@@ -45,6 +51,8 @@ class ExpiryHandler {
         }
     })]);
     _updateExpiryValue(_mSliderJsObj.callMethod('slider', ['value']), _mExpValUnitElem, _mExpValValueElem, _mExpValTextElem);
+
+    _addExpiryUnitListener();
   }
 
   String _getExpiryText(int value) {
@@ -65,6 +73,8 @@ class ExpiryHandler {
     }
     expValValueElem.text = _paddingLeadingZeros(value, 2);
     expValTextElem.text = _getExpiryText(value);
+    // cache updated value
+    _mExpiryValue = value;
   }
 
   String _paddingLeadingZeros(int value, int totalWidth) {
@@ -78,5 +88,19 @@ class ExpiryHandler {
     return sb.toString();
   }
 
+  void _addExpiryUnitListener() {
+    Element radioGroupUnit = _mExpValUnitElem.querySelector('#editor-exp-val-unit-group');
+    radioGroupUnit.children.forEach((radioButton) {
+      radioButton.onChange.listen((ev){
+        Element radioButton = ev.target;
+        window.console.log(radioButton);
+        _mExpiryUnit = (radioButton.getAttribute('name'));
+      });
+    });
+  }
+
+  String get ExpireTime {
+    return '$_mExpiryValue$_mExpiryUnit';
+  }
 
 }

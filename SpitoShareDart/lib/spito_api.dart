@@ -18,6 +18,8 @@ class SpitoAPI {
   Future<SpitoAPIResult> CreateSpit(String content, String spit_type, int exp, String expMode) {
     int millis = new DateTime.now().millisecondsSinceEpoch;
 
+    window.console.log('expiration: ${_expireTime(exp, expMode)}');
+
     FormData formData = new FormData()
       ..append('spit_type', spit_type)
       ..append('exp', exp.toString())
@@ -73,6 +75,14 @@ class SpitoAPI {
     return completer.future;
   }
 
+  int _expireTime(int _mExpiryValue, String _mExpiryUnit) {
+    if (_mExpiryUnit == 's') return _mExpiryValue;
+    else if (_mExpiryUnit == 'm') return _mExpiryValue * 60;
+    else if (_mExpiryUnit == 'h') return _mExpiryValue * 3600;
+    else if (_mExpiryUnit == 'd') return _mExpiryValue * 24 * 3600;
+    else if (_mExpiryUnit == 'M') return _mExpiryValue * 30 * 24 * 3600;
+    return 60; // default
+  }
 }
 
 class Spit {

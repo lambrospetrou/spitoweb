@@ -78,33 +78,24 @@
                 <div id="outer-content">
                     <div id="content-container">
 
-                        <div id="home-page" class="content">
+                        <div id="home-page" class="content"><form id="new-spit-form" onsubmit="return false;">
 
                             <div id="editor-tools" class="group-clearfix">
 
                                 <div id="input-mode-tools">
                                     <paper-radio-group id="spit-type-radio-group" selected="url">
                                         <paper-radio-button name="url" value="url" label="URL shortener"></paper-radio-button>
-                                        <paper-radio-button name="src" value="src" label="Text &amp; Source Code"></paper-radio-button>
+                                        <paper-radio-button name="text" value="text" label="Text &amp; Source Code"></paper-radio-button>
                                     </paper-radio-group>
                                 </div>
 
                                 <div id="editor-tools-buttons">
                                     <ul>
                                         <li>
-                                            <paper-button id="btnEditorCreate">
-                                                create
-                                            </paper-button>
+                                            <button type="submit" id="btnEditorCreate"><paper-button>create</paper-button></button>
                                         </li>
                                         <li>
-                                            <paper-button>
-                                                clear
-                                            </paper-button>
-                                        </li>
-                                        <li>
-                                            <paper-button raised disabled>
-                                                copy
-                                            </paper-button>
+                                            <button type="button" id="btnEditorClear"><paper-button>clear</paper-button></button>
                                         </li>
                                     </ul>
                                 </div>
@@ -117,7 +108,7 @@
                                     <textarea id="editor-text" class="editor-input-text disabled-element" name="editor-text"
                                           spellcheck="true"
                                           autofocus required=""
-                                          placeholder="Enter your text Or your source code here"></textarea>
+                                          placeholder="Enter your text Or source code here"></textarea>
                                     <input id="editor-url" class="editor-input-text" name="editor-text" type="url"
                                            spellcheck="true"
                                            autofocus required=""
@@ -133,7 +124,7 @@
                                                     <span id="editor-exp-val-text"></span>
                                                     <span id="editor-exp-val-value"></span>
                                                 <span id="editor-exp-val-unit">
-                                                    <paper-radio-group selected="m">
+                                                    <paper-radio-group id="editor-exp-val-unit-group" selected="m">
                                                         <paper-radio-button name="m"
                                                                             label="Minutes"></paper-radio-button>
                                                         <paper-radio-button name="h" label="Hours"></paper-radio-button>
@@ -148,14 +139,15 @@
                                     </ul>
                                 </div>
 
-                            </div>
-                        </div>
+                            </div> <!-- end of Spito Editor -->
+
+                        </form></div> <!-- end of Home page and Form -->
 
                         <div id="view-page" class="content disabled-element">
                             <div id="search-tools">
                                 <form id="view-spit-form" onsubmit="return false;">
                                     <input id="spit-id" class="editor-input-text" name="spit-id" maxlength="20" type="text"
-                                           autofocus required="" placeholder="Enter the Spit ID you want to display"/>
+                                           autofocus required="" placeholder="Spit ID you want to display"/>
                                     <button type="submit"><paper-button raised="">View Spit</paper-button></button>
                                     <!-- pencil and search icons -->
                                     <!--<svg viewBox="0 0 24 24" height="100%" width="100%" preserveAspectRatio="xMidYMid meet" fit="" style="pointer-events: none; display: block;"><g><path d="M3 17.25v3.75h3.75l11.06-11.06-3.75-3.75-11.06 11.06zm17.71-10.21c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"></path></g></svg>-->
@@ -167,10 +159,10 @@
                                 <article id="view-spit-information">
                                     <header class="spit-header group-clearfix">
                                         <div class="float-left">
-                                            <h1 id="spit-header" title="Click and then CRTL + C to copy the link">{{.Spit.AbsoluteURL}}</h1>
+                                            <h1 id="spit-header" title="Click and then CRTL + C to copy the link"></h1>
                                             <section class="spit-meta-top">
                                                 <ul>
-                                                    <li><a id="spit-absurl" href="{{.Spit.AbsoluteURL}}" title="visit spit link"><paper-button raised>Visit Spit link</paper-button></a></li>
+                                                    <li><a id="spit-absurl" href="#" title="visit spit link"><paper-button raised>Visit Spit link</paper-button></a></li>
                                                 </ul>
                                             </section>
                                         </div>
@@ -182,9 +174,9 @@
                                     <section class="spit-body">
                                         <section class="spit-meta-body">
                                             <ul>
-                                                <li><span class="heading">expiration in (seconds)</span><span id="spit-exp-time">{{.Spit.RemainingExpiration}}</span></li>
-                                                <li><span class="heading">created</span><span id="spit-date">{{ .Spit.FormattedCreatedTime }}</span></li>
-                                                <li><span class="heading">clicks</span><span id="spit-clicks">{{ .Spit.Clicks }}</span></li>
+                                                <li><span class="heading">expiration in (seconds)</span><span id="spit-exp-time"></span></li>
+                                                <li><span class="heading">created</span><span id="spit-date"></span></li>
+                                                <li><span class="heading">clicks</span><span id="spit-clicks"></span></li>
                                             </ul>
                                         </section>
                                         <textarea class="spit-content" id="spit-content" readonly></textarea>

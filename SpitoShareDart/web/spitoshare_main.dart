@@ -10,17 +10,40 @@ void main() {
 
   SpitoAPI spitoApi = new SpitoAPI("http://localhost:40090/");
   SpitoEditor spitEditor = new SpitoEditor(querySelector('#home-page'), SpitoEditor.SPIT_URL);
-
+/*
   Element btnEditorCreate = querySelector('#btnEditorCreate');
   btnEditorCreate.onClick.listen((ev) {
     btnEditorCreate.setAttribute('disabled', 'true');
-    window.console.log('spito editor: ${spitEditor.SpitInfoURLEncoded}');
-    spitoApi.CreateSpit('testing the Dart client', 'text', 60, 's')
+    window.console.log('spito editor: ${spitEditor.SpitTypeEncoded}');
+    window.console.log('spito editor: ${spitEditor.SpitType}');
+    window.console.log('spito editor: ${spitEditor.Content}');
+    window.console.log('spito editor: ${spitEditor.ExpireTime}');
+    String expirefull = spitEditor.ExpireTime;
+    spitoApi.CreateSpit(spitEditor.Content,
+                        spitEditor.SpitType,
+                        int.parse(expirefull.substring(0, expirefull.length-1)),
+                        expirefull.substring(expirefull.length-1, expirefull.length))
+    //spitoApi.CreateSpit('testing the Dart client', 'text', 60, 's')
     .then(handleNewSpitResult)
     .catchError(handleNewSpitResultError)
     .whenComplete(() {
       btnEditorCreate.setAttribute('disabled', 'false');
     });
+  });
+*/
+
+  FormElement formNewSpit = querySelector('#new-spit-form');
+  formNewSpit.onSubmit.listen((ev) {
+    formNewSpit.setAttribute('disabled', 'true');
+    ev.stopImmediatePropagation();
+    _createNewSpit(spitoApi, spitEditor, () {
+      formNewSpit.setAttribute('disabled', 'false');
+    });
+  });
+
+  Element btnEditorClear = querySelector('#btnEditorClear');
+  btnEditorClear.onClick.listen((ev) {
+    spitEditor.clearContent();
   });
 
   Element radioGroupSpitType = querySelector('#spit-type-radio-group');
@@ -28,15 +51,6 @@ void main() {
     radioButton.onChange.listen((ev){
       Element radioButton = ev.target;
       window.console.log(radioButton);
-      /*
-      if (radioButton.getAttribute('name') == 'src') {
-        querySelector('#editor-text').classes.remove('disabled-element');
-        querySelector('#editor-url').classes.add('disabled-element');
-      } else if (radioButton.getAttribute('name') == 'url') {
-        querySelector('#editor-text').classes.add('disabled-element');
-        querySelector('#editor-url').classes.remove('disabled-element');
-      }
-      */
       spitEditor.setSpitType(radioButton.getAttribute('name'));
     });
   });
@@ -126,7 +140,8 @@ void _fillSpitInformation(Spit spit) {
   (spitInfo.querySelector('#spit-link-qr') as ImageElement).src =
   'http://chart.apis.google.com/chart?chs=100x100&cht=qr&choe=UTF-8&chl=${spit.AbsoluteURL}';
 
-  (spitInfo.querySelector('#spit-content') as TextAreaElement).text = spit.Content;
+  //(spitInfo.querySelector('#spit-content') as TextAreaElement).text = spit.Content;
+  (spitInfo.querySelector('#spit-content') as TextAreaElement).value = spit.Content;
   if (spit.Expiration > 0) {
     var second = const Duration(seconds: 1);
     new Timer.periodic(second, (Timer timer){
@@ -143,11 +158,32 @@ void _fillSpitInformation(Spit spit) {
   spitInfo.querySelector('#spit-clicks').text = 'coming soon';
 }
 
-void handleNewSpitResult(SpitoAPIResult result) {
+void _createNewSpit(SpitoAPI spitoApi, SpitoEditor spitEditor, Function whenCompleteCallback) {
+  window.console.log('spito editor: ${spitEditor.SpitTypeEncoded}');
+  window.console.log('spito editor: ${spitEditor.SpitType}');
+  window.console.log('spito editor: ${spitEditor.Content}');
+  window.console.log('spito editor: ${spitEditor.ExpireTime}');
+  String expirefull = spitEditor.ExpireTime;
+  spitoApi.CreateSpit(spitEditor.Content,
+                      spitEditor.SpitType,
+                      int.parse(expirefull.substring(0, expirefull.length-1)),
+                      expirefull.substring(expirefull.length-1, expirefull.length))
+  //spitoApi.CreateSpit('testing the Dart client', 'text', 60, 's')
+  .then(_handleNewSpitResult)
+  .catchError(_handleNewSpitResultError)
+  .whenComplete(() {
+    if (whenCompleteCallback != null) whenCompleteCallback();
+  });
+}
+void _handleNewSpitResult(SpitoAPIResult result) {
   window.console.info(result);
   window.alert('Created: ${result.Spit.Id} ${result.Spit.Content}');
+  // update the URL hash to contain the newly fetched id
+  window.location.hash = '#/view/${result.Spit.Id}';
 }
 
-void handleNewSpitResultError(SpitoAPIResult result) {
+void _handleNewSpitResultError(SpitoAPIResult result) {
   window.console.info(result);
 }
+
+
