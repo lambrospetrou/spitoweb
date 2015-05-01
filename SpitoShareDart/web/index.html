@@ -3,6 +3,8 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spito Share v1.0</title>
 
     <script src="packages/web_components/webcomponents.min.js"></script>
@@ -25,6 +27,7 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.min.js"></script>
+    <script src="js_libs/jquery.ui.touch-punch.min.js"></script>
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="style_view.css">
@@ -67,6 +70,8 @@
 
                     <a href="#/"><paper-icon-button id="btnNewSpit" icon="create" title="Create new spit"></paper-icon-button></a>
                     <a href="#/view/"><paper-icon-button id="btnFindSpit" icon="search" title="Search for a spit"></paper-icon-button></a>
+                    <!-- pencil and search icons -->
+                    <!--<svg viewBox="0 0 24 24" height="100%" width="100%" preserveAspectRatio="xMidYMid meet" fit="" style="pointer-events: none; display: block;"><g><path d="M15.5 14h-.79l-.28-.27c.98-1.14 1.57-2.62 1.57-4.23 0-3.59-2.91-6.5-6.5-6.5s-6.5 2.91-6.5 6.5 2.91 6.5 6.5 6.5c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99 1.49-1.49-4.99-5zm-6 0c-2.49 0-4.5-2.01-4.5-4.5s2.01-4.5 4.5-4.5 4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5z"></path></g></svg>-->
                 </core-toolbar>
 
                 <div id="outer-content-header">
@@ -92,10 +97,10 @@
                                 <div id="editor-tools-buttons">
                                     <ul>
                                         <li>
-                                            <button type="submit" id="btnEditorCreate"><paper-button>create</paper-button></button>
+                                            <button type="submit" id="btnEditorCreate" title="Create a new Spit"><paper-button>create</paper-button></button>
                                         </li>
                                         <li>
-                                            <button type="button" id="btnEditorClear"><paper-button>clear</paper-button></button>
+                                            <button type="button" id="btnEditorClear" title="Clear Spit content"><paper-button>clear</paper-button></button>
                                         </li>
                                     </ul>
                                 </div>
@@ -149,11 +154,8 @@
                             <div id="search-tools">
                                 <form id="view-spit-form" onsubmit="return false;">
                                     <input id="spit-id" class="editor-input-text" name="spit-id" maxlength="20" type="text"
-                                           autofocus required="" placeholder="Spit ID you want to display"/>
+                                           autofocus required="" placeholder="Spit ID"/>
                                     <button type="submit"><paper-button raised="">View Spit</paper-button></button>
-                                    <!-- pencil and search icons -->
-                                    <!--<svg viewBox="0 0 24 24" height="100%" width="100%" preserveAspectRatio="xMidYMid meet" fit="" style="pointer-events: none; display: block;"><g><path d="M3 17.25v3.75h3.75l11.06-11.06-3.75-3.75-11.06 11.06zm17.71-10.21c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"></path></g></svg>-->
-                                    <!--<svg viewBox="0 0 24 24" height="100%" width="100%" preserveAspectRatio="xMidYMid meet" fit="" style="pointer-events: none; display: block;"><g><path d="M15.5 14h-.79l-.28-.27c.98-1.14 1.57-2.62 1.57-4.23 0-3.59-2.91-6.5-6.5-6.5s-6.5 2.91-6.5 6.5 2.91 6.5 6.5 6.5c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99 1.49-1.49-4.99-5zm-6 0c-2.49 0-4.5-2.01-4.5-4.5s2.01-4.5 4.5-4.5 4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5z"></path></g></svg>-->
                                 </form>
 
                                 <div id="view-spit-errors" class="disabled-element"></div>

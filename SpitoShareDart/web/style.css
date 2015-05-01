@@ -276,6 +276,8 @@ body {
             border-radius: 0;
             background: #920000;
             z-index: 0;
+            -ms-touch-action: none;
+            touch-action: none;
         }
             /*#editor-exp-slider .ui-state-default:hover {*/
             #editor-exp-slider .ui-slider-handle:hover {

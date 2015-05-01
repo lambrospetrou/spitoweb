@@ -94,6 +94,7 @@ class Spit {
   DateTime _mDateCreated;
   bool _mIsUrl;
   String _mAbsUrl;
+  int _mClicks;
 
   /*
 {
@@ -116,6 +117,7 @@ class Spit {
     this._mSpitType = jsonMap['spit_type'];
     this._mIsUrl = jsonMap['is_url'];
     this._mAbsUrl = jsonMap['absolute_url'];
+    this._mClicks = jsonMap['clicks'];
     // date is taken by GO server as: 2015-02-07 00:06:00.44145677Z
     // but Dart DateTime can only parse 3 digits of milliseconds
     String dateStr = jsonMap['date_created'];
@@ -132,6 +134,7 @@ class Spit {
   String get Content => this._mContent;
   String get SpitType => this._mSpitType;
   int get Expiration => this._mExp;
+  int get Clicks => this._mClicks;
   DateTime get DateCreated => this._mDateCreated;
   bool get IsUrl => this._mIsUrl;
   String get AbsoluteURL => this._mAbsUrl;

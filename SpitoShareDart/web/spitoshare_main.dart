@@ -141,7 +141,8 @@ void _fillSpitInformation(Spit spit) {
   }
   String dateStr = spit.DateCreated.toLocal().toString();
   spitInfo.querySelector('#spit-date').text = dateStr.substring(0, dateStr.lastIndexOf('.'));
-  spitInfo.querySelector('#spit-clicks').text = 'coming soon';
+  //spitInfo.querySelector('#spit-clicks').text = 'coming soon';
+  spitInfo.querySelector('#spit-clicks').text = spit.Clicks.toString();
 }
 
 void _createNewSpit(SpitoAPI spitoApi, SpitoEditor spitEditor, Function whenCompleteCallback) {
