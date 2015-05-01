@@ -94,7 +94,7 @@ body {
 }
 
 #site-drawer-menu {
-  height: 100%;
+  height: auto;
 }
 
 #site-bottom-copyright {

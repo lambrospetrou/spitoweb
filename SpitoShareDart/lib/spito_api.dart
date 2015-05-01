@@ -75,30 +75,6 @@ class SpitoAPI {
 
 }
 
-class SpitoAPIResult {
-  SpitoAPIResult(this._mStatus, this._mMsg, this._mSpit, this._mResponse) {}
-
-  HttpRequest _mResponse;
-
-  HttpRequest get Response => this._mResponse;
-
-  int _mStatus;
-
-  int get Status => this._mStatus;
-
-  String _mMsg;
-
-  String get Message => this._mMsg;
-
-  Spit _mSpit;
-
-  Spit get Spit => this._mSpit;
-
-  int _mDuration;
-  int get Duration => this._mDuration;
-  set Duration(int d) => this._mDuration = d;
-}
-
 class Spit {
   String _mId;
   String _mContent;
@@ -146,4 +122,28 @@ class Spit {
   DateTime get DateCreated => this._mDateCreated;
   bool get IsUrl => this._mIsUrl;
   String get AbsoluteURL => this._mAbsUrl;
+}
+
+class SpitoAPIResult {
+  SpitoAPIResult(this._mStatus, this._mMsg, this._mSpit, this._mResponse) {}
+
+  HttpRequest _mResponse;
+
+  HttpRequest get Response => this._mResponse;
+
+  int _mStatus;
+
+  int get Status => this._mStatus;
+
+  String _mMsg;
+
+  String get Message => this._mMsg;
+
+  Spit _mSpit;
+
+  Spit get Spit => this._mSpit;
+
+  int _mDuration;
+  int get Duration => this._mDuration;
+  set Duration(int d) => this._mDuration = d;
 }

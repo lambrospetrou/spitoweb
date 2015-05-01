@@ -9,7 +9,7 @@ import 'package:spitoshare/spito_editor.dart';
 void main() {
 
   SpitoAPI spitoApi = new SpitoAPI("http://localhost:40090/");
-  SpitoEditor spitEditor = new SpitoEditor(querySelector('#home-page'));
+  SpitoEditor spitEditor = new SpitoEditor(querySelector('#home-page'), SpitoEditor.SPIT_URL);
 
   Element btnEditorCreate = querySelector('#btnEditorCreate');
   btnEditorCreate.onClick.listen((ev) {
@@ -28,6 +28,7 @@ void main() {
     radioButton.onChange.listen((ev){
       Element radioButton = ev.target;
       window.console.log(radioButton);
+      /*
       if (radioButton.getAttribute('name') == 'src') {
         querySelector('#editor-text').classes.remove('disabled-element');
         querySelector('#editor-url').classes.add('disabled-element');
@@ -35,6 +36,8 @@ void main() {
         querySelector('#editor-text').classes.add('disabled-element');
         querySelector('#editor-url').classes.remove('disabled-element');
       }
+      */
+      spitEditor.setSpitType(radioButton.getAttribute('name'));
     });
   });
 
