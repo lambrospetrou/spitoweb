@@ -127,9 +127,13 @@ void _fillSpitInformation(Spit spit) {
     var second = const Duration(seconds: 1);
     new Timer.periodic(second, (Timer timer){
       int secs = new DateTime.now().difference(spit.DateCreated).inSeconds;
-      secs = (spit.Expiration - secs);
-      spitInfo.querySelector('#spit-exp-time').text = secs>0 ? secs.toString() : 'expired';
-      if (secs <= 0) timer.cancel();
+      //window.console.log('${secs} ${new DateTime.now().toIso8601String()} ${spit.DateCreated}');
+      if (spit.Expiration > secs) {
+        spitInfo.querySelector('#spit-exp-time').text = (spit.Expiration-secs).toString();
+      } else {
+        spitInfo.querySelector('#spit-exp-time').text = 'expired';
+        timer.cancel();
+      }
     });
   } else {
     spitInfo.querySelector('#spit-exp-time').text = 'never';
@@ -161,7 +165,7 @@ void _createNewSpit(SpitoAPI spitoApi, SpitoEditor spitEditor, Function whenComp
 
 void _handleNewSpitResult(SpitoAPIResult result) {
   window.console.info(result);
-  window.alert('Created: ${result.Spit.Id} ${result.Spit.Content}');
+  window.alert('Created: ${result.Spit.Id} ${result.Spit.Content} ${result.Spit.Expiration}');
   // update the URL hash to contain the newly fetched id
   window.location.hash = '#/view/${result.Spit.Id}';
 }
@@ -181,5 +185,3 @@ void _handleNewSpitResultError(SpitoAPIResult err) {
   }
   querySelector('#new-spit-errors').classes.remove('disabled-element');
 }
-
-

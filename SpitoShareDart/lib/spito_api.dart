@@ -19,6 +19,7 @@ class SpitoAPI {
     int millis = new DateTime.now().millisecondsSinceEpoch;
 
     window.console.log('expiration: ${_expireTime(exp, expMode)}');
+    exp = _expireTime(exp, expMode);
 
     FormData formData = new FormData()
       ..append('spit_type', spit_type)
@@ -118,10 +119,12 @@ class Spit {
     // date is taken by GO server as: 2015-02-07 00:06:00.44145677Z
     // but Dart DateTime can only parse 3 digits of milliseconds
     String dateStr = jsonMap['date_created'];
+    window.console.log(dateStr);
     int lastDot = dateStr.lastIndexOf('.');
     String dateMillis = dateStr.substring(lastDot+1);
     dateMillis = dateMillis.length > 3 ? dateMillis.substring(0,3) : dateMillis;
-    dateStr = dateStr.substring(0, lastDot+1) + dateMillis + 'Z';
+    //dateStr = dateStr.substring(0, lastDot+1) + dateMillis + 'Z';
+    dateStr = dateStr.substring(0, lastDot+1) + dateMillis;
     this._mDateCreated = DateTime.parse(dateStr);
   }
 
