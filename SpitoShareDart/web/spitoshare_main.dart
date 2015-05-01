@@ -2,6 +2,7 @@ library spitoshare;
 
 import 'dart:html';
 import 'dart:async';
+import 'dart:convert';
 import 'package:spitoshare/spito_api.dart';
 import 'package:spitoshare/spito_router.dart';
 import 'package:spitoshare/spito_editor.dart';
@@ -139,18 +140,14 @@ void _fillSpitInformation(Spit spit) {
 }
 
 void _createNewSpit(SpitoAPI spitoApi, SpitoEditor spitEditor, Function whenCompleteCallback) {
+  querySelector('#new-spit-errors').classes.add('disabled-element');
 //  window.console.log('spito editor: ${spitEditor.SpitTypeEncoded}');
 //  window.console.log('spito editor: ${spitEditor.SpitType}');
 //  window.console.log('spito editor: ${spitEditor.Content}');
 //  window.console.log('spito editor: ${spitEditor.ExpireTime}');
   String content = spitEditor.Content;
-  if (content == null || content.trim().isEmpty) {
-    spitEditor.clearContent();
-    return;
-  }
-
   String expirefull = spitEditor.ExpireTime;
-  spitoApi.CreateSpit(spitEditor.Content,
+  spitoApi.CreateSpit(content,
                       spitEditor.SpitType,
                       int.parse(expirefull.substring(0, expirefull.length-1)),
                       expirefull.substring(expirefull.length-1, expirefull.length))
@@ -169,8 +166,20 @@ void _handleNewSpitResult(SpitoAPIResult result) {
   window.location.hash = '#/view/${result.Spit.Id}';
 }
 
-void _handleNewSpitResultError(SpitoAPIResult result) {
-  window.console.info(result);
+void _handleNewSpitResultError(SpitoAPIResult err) {
+  window.console.error(err.Message);
+  try {
+    Map errJson = JSON.decode(err.Response.responseText);
+    StringBuffer sb = new StringBuffer();
+    for (String msg in errJson['errors']) { sb.write(msg); }
+    querySelector('#new-spit-errors').text = sb.toString();
+  } on FormatException catch (e) {
+    querySelector('#new-spit-errors').text = err.Message;
+  } catch (e, stackTrace) {
+    querySelector('#new-spit-errors').text = 'Unrecognized error: ${e}';
+    window.console.error(stackTrace);
+  }
+  querySelector('#new-spit-errors').classes.remove('disabled-element');
 }
 
 

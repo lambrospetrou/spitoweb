@@ -185,6 +185,17 @@ body {
     border: none;
 }
 
+#new-spit-errors {
+    width: 100%;
+    margin: 10px auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    color: #920000;
+    font-style: italic;
+    font-weight: bold;
+}
+
 #editor-tools {
   position: relative;
   width: 100%;
