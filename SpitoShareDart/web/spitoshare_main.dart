@@ -114,6 +114,7 @@ void getAndShowSpit(SpitoAPI spitoApi, String id, Function whenCompleteCallback)
   }
 }
 
+
 void _fillSpitInformation(Spit spit) {
   Element spitInfo = querySelector('#view-spit-information');
   spitInfo.querySelector('#spit-header').text = spit.AbsoluteURL;
