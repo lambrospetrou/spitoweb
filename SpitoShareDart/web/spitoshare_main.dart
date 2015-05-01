@@ -10,28 +10,8 @@ void main() {
 
   SpitoAPI spitoApi = new SpitoAPI("http://localhost:40090/");
   SpitoEditor spitEditor = new SpitoEditor(querySelector('#home-page'), SpitoEditor.SPIT_URL);
-/*
-  Element btnEditorCreate = querySelector('#btnEditorCreate');
-  btnEditorCreate.onClick.listen((ev) {
-    btnEditorCreate.setAttribute('disabled', 'true');
-    window.console.log('spito editor: ${spitEditor.SpitTypeEncoded}');
-    window.console.log('spito editor: ${spitEditor.SpitType}');
-    window.console.log('spito editor: ${spitEditor.Content}');
-    window.console.log('spito editor: ${spitEditor.ExpireTime}');
-    String expirefull = spitEditor.ExpireTime;
-    spitoApi.CreateSpit(spitEditor.Content,
-                        spitEditor.SpitType,
-                        int.parse(expirefull.substring(0, expirefull.length-1)),
-                        expirefull.substring(expirefull.length-1, expirefull.length))
-    //spitoApi.CreateSpit('testing the Dart client', 'text', 60, 's')
-    .then(handleNewSpitResult)
-    .catchError(handleNewSpitResultError)
-    .whenComplete(() {
-      btnEditorCreate.setAttribute('disabled', 'false');
-    });
-  });
-*/
 
+  // CREATE SPIT - LISTENERS
   FormElement formNewSpit = querySelector('#new-spit-form');
   formNewSpit.onSubmit.listen((ev) {
     formNewSpit.setAttribute('disabled', 'true');
@@ -55,7 +35,7 @@ void main() {
     });
   });
 
-  // VIEW - PAGE LISTENERS
+  // VIEW SPIT - PAGE LISTENERS
   FormElement formViewSpit = querySelector('#view-spit-form');
   formViewSpit.onSubmit.listen((ev) {
     formViewSpit.setAttribute('disabled', 'true');
@@ -159,10 +139,16 @@ void _fillSpitInformation(Spit spit) {
 }
 
 void _createNewSpit(SpitoAPI spitoApi, SpitoEditor spitEditor, Function whenCompleteCallback) {
-  window.console.log('spito editor: ${spitEditor.SpitTypeEncoded}');
-  window.console.log('spito editor: ${spitEditor.SpitType}');
-  window.console.log('spito editor: ${spitEditor.Content}');
-  window.console.log('spito editor: ${spitEditor.ExpireTime}');
+//  window.console.log('spito editor: ${spitEditor.SpitTypeEncoded}');
+//  window.console.log('spito editor: ${spitEditor.SpitType}');
+//  window.console.log('spito editor: ${spitEditor.Content}');
+//  window.console.log('spito editor: ${spitEditor.ExpireTime}');
+  String content = spitEditor.Content;
+  if (content == null || content.trim().isEmpty) {
+    spitEditor.clearContent();
+    return;
+  }
+
   String expirefull = spitEditor.ExpireTime;
   spitoApi.CreateSpit(spitEditor.Content,
                       spitEditor.SpitType,
@@ -175,6 +161,7 @@ void _createNewSpit(SpitoAPI spitoApi, SpitoEditor spitEditor, Function whenComp
     if (whenCompleteCallback != null) whenCompleteCallback();
   });
 }
+
 void _handleNewSpitResult(SpitoAPIResult result) {
   window.console.info(result);
   window.alert('Created: ${result.Spit.Id} ${result.Spit.Content}');
