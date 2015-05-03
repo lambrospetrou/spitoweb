@@ -166,8 +166,8 @@ void _createNewSpit(SpitoAPI spitoApi, SpitoEditor spitEditor, Function whenComp
 }
 
 void _handleNewSpitResult(SpitoAPIResult result) {
-  window.console.info(result);
-  window.alert('Created: ${result.Spit.Id} ${result.Spit.Content} ${result.Spit.Expiration}');
+  //window.console.info(result);
+  //window.alert('Created: ${result.Spit.Id} ${result.Spit.Content} ${result.Spit.Expiration}');
   // update the URL hash to contain the newly fetched id
   window.location.hash = '#/view/${result.Spit.Id}';
 }

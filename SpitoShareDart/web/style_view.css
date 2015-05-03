@@ -8,7 +8,7 @@
 }
 
 #view-spit-form #spit-id {
-    width: calc(100% - 120px);
+    width: calc(100% - 115px);
     display: inline-block;
     vertical-align: middle;
 }
@@ -47,7 +47,7 @@
 }
 
 .spit-header h1 {
-    font-size: 200%;
+    font-size: 150%;
     color: #920000;
 }
 .spit-header img {
@@ -186,9 +186,20 @@
     text-decoration: none;
 }
 
+.spit-header a paper-button {
+  min-width: 0px;
+}
+
+.spit-header .qr-code {
+  float: right;
+}
 
 @media (max-width: 650px) {
     .spit-meta-body {
         text-align: left;
+    }
+    .spit-header .qr-code {
+      float: none;
+      text-align: center;
     }
 }

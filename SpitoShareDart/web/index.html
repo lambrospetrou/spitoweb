@@ -8,29 +8,21 @@
     <title>Spito Share v1.0</title>
 
     <script src="packages/web_components/webcomponents.min.js"></script>
-    <script src="packages/web_components/dart_support.js"></script>
 
     <link rel="import" href="js_libs/bower_components/paper-radio-group/paper-radio-group.html">
 
     <link rel="import" href="js_libs/bower_components/paper-button/paper-button.html">
     <link rel="import" href="js_libs/bower_components/paper-icon-button/paper-icon-button.html">
+<!--
     <link rel="import" href="js_libs/bower_components/core-icon/core-icon.html">
     <link rel="import" href="js_libs/bower_components/core-icons/core-icons.html">
     <link rel="import" href="js_libs/bower_components/core-icons/social-icons.html">
-
+-->
     <link rel="import" href="js_libs/bower_components/core-toolbar/core-toolbar.html">
     <link rel="import" href="js_libs/bower_components/core-menu/core-menu.html">
     <link rel="import" href="js_libs/bower_components/core-item/core-item.html">
     <link rel="import" href="js_libs/bower_components/core-drawer-panel/core-drawer-panel.html">
     <link rel="import" href="js_libs/bower_components/core-header-panel/core-header-panel.html">
-
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.min.js"></script>
-    <script src="js_libs/jquery.ui.touch-punch.min.js"></script>
-
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="style_view.css">
 
 </head>
 <body>
@@ -61,7 +53,7 @@
                     <paper-icon-button id="navicon" icon="menu" core-drawer-toggle></paper-icon-button>
                       <span id="site-header-title">
                           <span id="site-header-logo">
-                              <span><img src="imgs/spito-share.png"></span>
+                              <span><img src="imgs/spito-share-optimized.png"></span>
                           </span>
                           <a href="http://cyari.es/spito/">Spito Share <sup><em>BETA</em></sup></a>
                       </span>
@@ -115,7 +107,7 @@
                                     <textarea id="editor-text" class="editor-input-text disabled-element" name="editor-text"
                                           spellcheck="true"
                                           autofocus required=""
-                                          placeholder="Enter your text Or source code here"></textarea>
+                                          placeholder="Enter your text Or code snippet here"></textarea>
                                     <input id="editor-url" class="editor-input-text" name="editor-text" type="url"
                                            spellcheck="true"
                                            autofocus required=""
@@ -163,15 +155,15 @@
                                 <article id="view-spit-information">
                                     <header class="spit-header group-clearfix">
                                         <div class="float-left">
-                                            <h1 id="spit-header" title="Click and then CRTL + C to copy the link"></h1>
                                             <section class="spit-meta-top">
                                                 <ul>
-                                                    <li><a id="spit-absurl" href="#" title="visit spit link"><paper-button raised>Visit Spit link</paper-button></a></li>
+                                                    <li><h1 id="spit-header" title="Click and then CRTL + C to copy the link"></h1></li>
+                                                    <li><a id="spit-absurl" href="#" title="visit spit link"><paper-button raised>GO</paper-button></a></li>
                                                 </ul>
                                             </section>
                                         </div>
-                                        <div class="float-right">
-                                            <img id="spit-link-qr" src="http://chart.apis.google.com/chart?chs=100x100&cht=qr&choe=UTF-8&chl="/>
+                                        <div class="qr-code">
+                                          <img id="spit-link-qr" src="http://chart.apis.google.com/chart?chs=100x100&cht=qr&choe=UTF-8&chl="/>
                                         </div>
                                     </header>
 
@@ -199,6 +191,16 @@
 
 </div>
 
-<script type="application/dart" src="spitoshare_main.dart"></script>
+    <script src="packages/web_components/dart_support.js"></script>
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.min.js"></script>
+    <script src="js_libs/jquery.ui.touch-punch.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style_view.css">
+
+    <script type="application/dart" src="spitoshare_main.dart"></script>
 </body>
 </html>
