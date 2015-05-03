@@ -18,11 +18,6 @@
     <link rel="import" href="js_libs/bower_components/core-icons/core-icons.html">
     <link rel="import" href="js_libs/bower_components/core-icons/social-icons.html">
 -->
-    <link rel="import" href="js_libs/bower_components/core-toolbar/core-toolbar.html">
-    <link rel="import" href="js_libs/bower_components/core-menu/core-menu.html">
-    <link rel="import" href="js_libs/bower_components/core-item/core-item.html">
-    <link rel="import" href="js_libs/bower_components/core-drawer-panel/core-drawer-panel.html">
-    <link rel="import" href="js_libs/bower_components/core-header-panel/core-header-panel.html">
 
 </head>
 <body>
@@ -30,50 +25,50 @@
 <div id="spitoshare-app">
 
     <div id="outer-container">
-        <core-drawer-panel id="drawerPanel" forceNarrow>
-            <core-header-panel id="site-drawer" drawer>
-                <core-toolbar id="site-drawer-header">
-                    <span>Menu</span>
-                </core-toolbar>
-                <core-menu id="site-drawer-menu" selected="0">
-                    <core-item label="Home"></core-item>
-                    <core-item label="Usage Hints"></core-item>
-                    <core-item label="FAQ"></core-item>
-                    <core-item label="About"></core-item>
-                </core-menu>
+
+        <div id="outer-site-header">
+                <div id="site-header" class="group-clearfix">
+                    <div id="site-header-title">
+                        <div id="site-header-drawer"><paper-icon-button id="navicon" icon="menu" core-drawer-toggle></paper-icon-button></div>
+                        <span id="site-header-logo">
+                            <span><img src="imgs/spito-share-optimized.png"></span>
+                        </span>
+                        <div id="site-header-title-text">
+                            <a href="http://cyari.es/spito/">Spito Share <sup><em>BETA</em></sup></a>
+                        </div>
+                    </div>
+                    <div id="site-header-tools">
+                        <div id="site-header-tools-btn">
+                            <a href="#/"><paper-icon-button id="btnNewSpit" icon="create" title="Create new spit"></paper-icon-button></a>
+                            <a href="#/view/"><paper-icon-button id="btnFindSpit" icon="search" title="Search for a spit"></paper-icon-button></a>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+        <div class="gn-menu-shadow global-shadow">&nbsp;</div>
+        <div class="gn-menu-wrapper" id="drawerPanel">
+            <div class="gn-scroller" id="site-drawer">
+                <div id="site-drawer-header" class="gn-menu-header vcenter">
+                    <h1>Menu</h1>
+                </div>
+
+                <ul class="gn-menu" id="site-drawer-menu">
+                  <li><a class="gn-icon gn-icon-home" href="/#/">Home</a></li>
+                  <li><a class="gn-icon gn-icon-faq" href="/#/faq/">FAQ</a></li>
+                  <li><a class="gn-icon gn-icon-about" href="/#/about/">About</a></li>
+                </ul>
 
                 <div id="site-bottom-copyright">
                     <hr/>
                     <p>&copy; 2015 - Lambros Petrou</p>
                 </div>
-            </core-header-panel>
+            </div><!-- /gn-scroller -->
+        </div>
 
-            <core-header-panel main>
-                <core-toolbar id="site-header">
-                    <paper-icon-button id="navicon" icon="menu" core-drawer-toggle></paper-icon-button>
-                      <span id="site-header-title">
-                          <span id="site-header-logo">
-                              <span><img src="imgs/spito-share-optimized.png"></span>
-                          </span>
-                          <a href="http://cyari.es/spito/">Spito Share <sup><em>BETA</em></sup></a>
-                      </span>
 
-                    <span flex></span>
-
-                    <a href="#/"><paper-icon-button id="btnNewSpit" icon="create" title="Create new spit"></paper-icon-button></a>
-                    <a href="#/view/"><paper-icon-button id="btnFindSpit" icon="search" title="Search for a spit"></paper-icon-button></a>
-                    <!-- pencil and search icons -->
-                    <!--<svg viewBox="0 0 24 24" height="100%" width="100%" preserveAspectRatio="xMidYMid meet" fit="" style="pointer-events: none; display: block;"><g><path d="M15.5 14h-.79l-.28-.27c.98-1.14 1.57-2.62 1.57-4.23 0-3.59-2.91-6.5-6.5-6.5s-6.5 2.91-6.5 6.5 2.91 6.5 6.5 6.5c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99 1.49-1.49-4.99-5zm-6 0c-2.49 0-4.5-2.01-4.5-4.5s2.01-4.5 4.5-4.5 4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5z"></path></g></svg>-->
-                </core-toolbar>
-
-                <div id="outer-content-header">
-                    <div id="content-header">
-                        <!-- EMPTY FOR THE MOMENT -->
-                    </div>
-                </div>
-
-                <div id="outer-content">
-                    <div id="content-container">
+                <div class="outer-content">
+                    <div class="content-container">
 
                         <div id="home-page" class="content"><form id="new-spit-form" onsubmit="return false;">
 
@@ -162,11 +157,6 @@
                                                 </ul>
                                             </section>
                                         </div>
-                                        <!--
-                                        <div class="qr-code">
-                                          <img id="spit-link-qr" src="http://chart.apis.google.com/chart?chs=100x100&cht=qr&choe=UTF-8&chl="/>
-                                        </div>
-                                        -->
                                     </header>
 
                                     <section class="spit-body">
@@ -184,14 +174,20 @@
                             </div>
                         </div>
 
-                    </div>
-                </div>
+                        <div id="faq-page" class="content">
+                            <h1>FAQ - coming soon</h1>
+                        </div>
 
-            </core-header-panel>
-        </core-drawer-panel>
-    </div>
+                        <div id="about-page" class="content">
+                            <h1>About - coming soon</h1>
+                        </div>
 
-</div>
+                    </div> <!-- content-container -->
+                </div> <!-- outer-content -->
+
+    </div> <!-- END of outer-container -->
+
+</div> <!-- END of spitoshare-app -->
 
     <script src="packages/web_components/dart_support.js"></script>
 
@@ -200,8 +196,10 @@
     <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.min.js"></script>
     <script src="js_libs/jquery.ui.touch-punch.min.js"></script>
 
+    <link rel="stylesheet" href="http://i.icomoon.io/public/temp/0ed3c7581b/UntitledProject/style.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="style_view.css">
+    <link rel="stylesheet" href="style_drawer.css">
 
     <script type="application/dart" src="spitoshare_main.dart"></script>
 </body>

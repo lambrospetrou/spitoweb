@@ -6,8 +6,12 @@ import 'dart:convert';
 import 'package:spitoshare/spito_api.dart';
 import 'package:spitoshare/spito_router.dart';
 import 'package:spitoshare/spito_editor.dart';
+import 'package:spitoshare/nav_drawer.dart';
 
 void main() {
+
+  NavDrawer menuDrawer = new NavDrawer(querySelector('#site-header-drawer'),
+      querySelector('.gn-menu-wrapper'), querySelector('.gn-menu-shadow'));
 
   SpitoAPI spitoApi = new SpitoAPI("http://localhost:40090/");
   SpitoEditor spitEditor = new SpitoEditor(querySelector('#home-page'), SpitoEditor.SPIT_URL);
@@ -61,28 +65,48 @@ void main() {
   print('pathname: ${window.location.pathname}');
 
   SpitoRouter router = new SpitoRouter(window.location.pathname);
-  router.OnViewHandler = (String id) => viewPageHandler(spitoApi, id);
-  router.OnHomeHandler = homePageHandler;
+  router.OnViewHandler = (String id) => _viewPageHandler(spitoApi, id);
+  router.OnHomeHandler = _homePageHandler;
+  router.OnAboutHandler = _aboutPageHandler;
+  router.OnFAQHandler = _faqPageHandler;
   router.OnAnyHandler = anyPageHandler;
   router.listen();
   router.handle(window.location.pathname + window.location.hash);
 }
 
-viewPageHandler(SpitoAPI spitoApi, String id) {
+void _viewPageHandler(SpitoAPI spitoApi, String id) {
   window.console.info('main controller:: view :: ${id}');
   // show search page
-  querySelector('#home-page').classes.add('disabled-element');
-  querySelector('#view-page').classes.remove('disabled-element');
+  _hideCurrentContent();
+  _setCurrentContent(querySelector('#view-page'));
   getAndShowSpit(spitoApi, id, null);
 }
 
-homePageHandler(String path) {
+void _homePageHandler(String path) {
   window.console.info('main controller:: home :: ${path}');
-  querySelector('#home-page').classes.remove('disabled-element');
-  querySelector('#view-page').classes.add('disabled-element');
+  _hideCurrentContent();
+  _setCurrentContent(querySelector('#home-page'));
 }
 
-anyPageHandler (String path) {
+void _aboutPageHandler() {
+  _hideCurrentContent();
+  _setCurrentContent(querySelector('#about-page'));
+}
+
+void _faqPageHandler() {
+  _hideCurrentContent();
+  _setCurrentContent(querySelector('#faq-page'));
+}
+
+void _hideCurrentContent() {
+  Element el = querySelector('.content-selected');
+  if (el != null) el.classes.remove('content-selected');
+}
+void _setCurrentContent(Element el) {
+  el.classes.add('content-selected');
+}
+
+void anyPageHandler (String path) {
   window.console.info('main controller:: any :: ${path}');
 }
 
@@ -188,3 +212,16 @@ void _handleNewSpitResultError(SpitoAPIResult err) {
   }
   querySelector('#new-spit-errors').classes.remove('disabled-element');
 }
+
+///////////////////////////////////
+///////////////////////////////////
+///////////////////////////////////
+
+
+
+
+
+
+
+
+
