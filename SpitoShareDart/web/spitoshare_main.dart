@@ -119,7 +119,8 @@ void _fillSpitInformation(Spit spit) {
   Element spitInfo = querySelector('#view-spit-information');
   spitInfo.querySelector('#spit-header').text = spit.AbsoluteURL;
   (spitInfo.querySelector('#spit-absurl') as AnchorElement).href = spit.AbsoluteURL;
-  (spitInfo.querySelector('#spit-link-qr') as ImageElement).src =
+  ImageElement qrcode = (spitInfo.querySelector('#spit-link-qr') as ImageElement);
+  if (qrcode != null) qrcode.src =
   'http://chart.apis.google.com/chart?chs=100x100&cht=qr&choe=UTF-8&chl=${spit.AbsoluteURL}';
 
   //(spitInfo.querySelector('#spit-content') as TextAreaElement).text = spit.Content;
