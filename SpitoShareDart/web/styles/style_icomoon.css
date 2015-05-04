@@ -13,9 +13,9 @@
 
 @font-face {
   font-family: 'icomoon';
-  src:url('fonts/icomoon.eot?eshi1b');
-  src:url('fonts/icomoon.eot?#iefixeshi1b') format('embedded-opentype');
-  src:url('fonts/icomoon.ttf?eshi1b') format('truetype');
+  src:url('../fonts/icomoon.eot?eshi1b');
+  src:url('../fonts/icomoon.eot?#iefixeshi1b') format('embedded-opentype');
+  src:url('../fonts/icomoon.ttf?eshi1b') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
