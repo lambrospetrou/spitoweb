@@ -31,7 +31,11 @@
         <div id="outer-site-header">
                 <div id="site-header" class="group-clearfix">
                     <div id="site-header-title">
-                        <div id="site-header-drawer"><paper-icon-button id="navicon" icon="menu" core-drawer-toggle></paper-icon-button></div>
+                        <div id="site-header-drawer">
+                            <a class="paper-icon-button ripplelink" id="navicon" title="Open navigation menu">
+                                <svg viewBox="-8 -8 40 40" height="100%" width="100%" preserveAspectRatio="xMidYMid meet" fit="" style="pointer-events: none; display: block;"><g id="menu"><path d="M3 18h18v-2h-18v2zm0-5h18v-2h-18v2zm0-7v2h18v-2h-18z"/></g></svg>
+                            </a>
+                        </div>
                         <span id="site-header-logo">
                             <span><img width="48px" height="48px" src="imgs/spito-share-optimized.png"></span>
                         </span>
@@ -41,12 +45,12 @@
                     </div>
                     <div id="site-header-tools">
                         <div id="site-header-tools-btn">
-                            <!--<a href="#/"><paper-icon-button id="btnNewSpit" icon="create" title="Create new spit"></paper-icon-button></a>
-                            <a href="#/view/"><paper-icon-button id="btnFindSpit" icon="search" title="Search for a spit"></paper-icon-button></a>-->
-                            <a href="#/view/" class="paper-icon-button ripplelink" title="Create new spit">
+                            <!--<a href="#/"><paper-icon-button icon="create" title="Create new spit"></paper-icon-button></a>
+                            <a href="#/view/"><paper-icon-button  icon="search" title="Search for a spit"></paper-icon-button></a>-->
+                            <a href="#/view/" id="btnNewSpit" class="paper-icon-button ripplelink" title="Create new spit">
                                 <svg viewBox="-8 -8 40 40" height="100%" width="100%" preserveAspectRatio="xMidYMid meet" fit="" style="pointer-events: none; display: block;"><g><path d="M3 17.25v3.75h3.75l11.06-11.06-3.75-3.75-11.06 11.06zm17.71-10.21c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"></path></g></svg>
                             </a>
-                            <a href="#/" class="paper-icon-button ripplelink" title="Search for a spit">
+                            <a href="#/" id="btnFindSpit" class="paper-icon-button ripplelink" title="Search for a spit">
                                 <svg viewBox="-8 -8 40 40" height="100%" width="100%" preserveAspectRatio="xMidYMid meet" fit="" style="pointer-events: none; display: block;"><g><path d="M15.5 14h-.79l-.28-.27c.98-1.14 1.57-2.62 1.57-4.23 0-3.59-2.91-6.5-6.5-6.5s-6.5 2.91-6.5 6.5 2.91 6.5 6.5 6.5c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99 1.49-1.49-4.99-5zm-6 0c-2.49 0-4.5-2.01-4.5-4.5s2.01-4.5 4.5-4.5 4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5z"></path></g></svg>
                             </a>
                         </div>

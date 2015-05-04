@@ -22,7 +22,7 @@
   display: block;
   background-color: rgba(0, 0, 0, 0.3);
   transition: opacity ease-in-out 0.38s, visibility ease-in-out 0.38s;
-  z-index: 100;
+  z-index: 10000;
   visibility: hidden;
 }
 .gn-shadow-open {
@@ -39,7 +39,7 @@
     left: -250px;
     transform: translateX(-250px); /* will be transitioned to 0px */
     transition: transform 0.3s, width 0.3s;
-    z-index: 101;
+    z-index: 10001;
 }
 
 .gn-menu-wrapper.gn-open-all,
