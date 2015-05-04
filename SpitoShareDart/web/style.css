@@ -500,6 +500,8 @@ html /deep/ core-icon {
     font-size: 22px;
 }
 */
+.paper-button[type="submit"],
+.paper-button[type="button"],
 .paper-button {
     display: inline-block;
     position: relative;

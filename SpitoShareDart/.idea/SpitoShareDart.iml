@@ -212,6 +212,7 @@
       <excludeFolder url="file://$MODULE_DIR$/web/js_libs/noUiSlider.7.0.9/packages" />
       <excludeFolder url="file://$MODULE_DIR$/web/js_libs/packages" />
       <excludeFolder url="file://$MODULE_DIR$/web/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/web/styles/packages" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
