@@ -1,0 +1,2 @@
+1.10.0
+initialize,initialize/build/loader_replacer,web_components,web_components/build/mirrors_remover

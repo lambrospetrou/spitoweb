@@ -29,6 +29,7 @@ void main() {
   Element btnEditorClear = querySelector('#btnEditorClear');
   btnEditorClear.onClick.listen((ev) {
     spitEditor.clearContent();
+    spitEditor.focusInput();
   });
 
   Element radioGroupSpitType = querySelector('#spit-type-radio-group');

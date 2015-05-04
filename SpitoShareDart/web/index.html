@@ -7,17 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spito Share v1.0</title>
 
+    <!--<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">-->
+    <link rel="stylesheet" href="styles/jquery-ui_266782770b18a4f0c6a5042adfc36aa5.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style_view.css">
+    <link rel="stylesheet" href="style_drawer.css">
+
     <script src="packages/web_components/webcomponents.min.js"></script>
 
     <link rel="import" href="js_libs/bower_components/paper-radio-group/paper-radio-group.html">
-
-    <link rel="import" href="js_libs/bower_components/paper-button/paper-button.html">
     <link rel="import" href="js_libs/bower_components/paper-icon-button/paper-icon-button.html">
-<!--
-    <link rel="import" href="js_libs/bower_components/core-icon/core-icon.html">
-    <link rel="import" href="js_libs/bower_components/core-icons/core-icons.html">
-    <link rel="import" href="js_libs/bower_components/core-icons/social-icons.html">
--->
 
 </head>
 <body>
@@ -31,7 +30,7 @@
                     <div id="site-header-title">
                         <div id="site-header-drawer"><paper-icon-button id="navicon" icon="menu" core-drawer-toggle></paper-icon-button></div>
                         <span id="site-header-logo">
-                            <span><img src="imgs/spito-share-optimized.png"></span>
+                            <span><img width="48px" height="48px" src="imgs/spito-share-optimized.png"></span>
                         </span>
                         <div id="site-header-title-text">
                             <a href="http://cyari.es/spito/">Spito Share <sup><em>BETA</em></sup></a>
@@ -84,10 +83,12 @@
                                 <div id="editor-tools-buttons">
                                     <ul>
                                         <li>
-                                            <button type="submit" id="btnEditorCreate" title="Create a new Spit"><paper-button>create</paper-button></button>
+                                            <!--<button type="submit" id="btnEditorCreate" title="Create a new Spit"><paper-button>create</paper-button></button>-->
+                                            <button type="submit" id="btnEditorCreate" title="Create a new Spit" class="paper-button ripplelink">create</button>
                                         </li>
                                         <li>
-                                            <button type="button" id="btnEditorClear" title="Clear Spit content"><paper-button>clear</paper-button></button>
+                                            <!--<button type="button" id="btnEditorClear" title="Clear Spit content"><paper-button>clear</paper-button></button>-->
+                                            <button type="button" id="btnEditorClear" title="Clear Spit content" class="paper-button ripplelink">clear</button>
                                         </li>
                                     </ul>
                                 </div>
@@ -176,6 +177,8 @@
 
                         <div id="faq-page" class="content">
                             <h1>FAQ - coming soon</h1>
+                            <button class="paper-button ripplelink">Login</button>
+                            <a class="paper-button ripplelink" href="">Login</a>
                         </div>
 
                         <div id="about-page" class="content">
@@ -191,16 +194,11 @@
 
     <script src="packages/web_components/dart_support.js"></script>
 
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.min.js"></script>
-    <script src="js_libs/jquery.ui.touch-punch.min.js"></script>
+    <script defer async src="js_libs/jquery.ui.touch-punch.min.js"></script>
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="style_view.css">
-    <link rel="stylesheet" href="style_drawer.css">
-
-    <link rel="stylesheet" href="style_icomoon.css">
+    <script async defer src="js_libs/lp-material.js"></script>
 
     <script type="application/dart" src="spitoshare_main.dart"></script>
 </body>

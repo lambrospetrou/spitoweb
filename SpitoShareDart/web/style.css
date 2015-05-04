@@ -4,10 +4,14 @@
 
 /* BOX-SIZING RESET RULES WITH INHERIT */
 html {
-  box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 *, *:before, *:after {
-  box-sizing: inherit;
+    -webkit-box-sizing: inherit;
+    -moz-box-sizing: inherit;
+    box-sizing: inherit;
 }
 /***************************************/
 
@@ -242,6 +246,7 @@ body {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
+/*
 #new-spit-form button {
     display: inline-block;
     background: none;
@@ -251,7 +256,7 @@ body {
     outline: none;
     border: none;
 }
-
+*/
 #new-spit-errors {
     width: 100%;
     margin: 10px auto;
@@ -264,8 +269,10 @@ body {
 }
 
 #editor-tools {
-  position: relative;
-  width: 100%;
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
   #editor-tools-buttons {
@@ -279,7 +286,6 @@ body {
   }
   #editor-tools-buttons ul li {
     display: inline-block;
-    margin-bottom: 5px;
   }
   #input-mode-tools {
       float: right;
@@ -458,4 +464,137 @@ body {
         float: none;
         text-align: center;
     }
+}
+
+/*****************************
+ * POLYMER CORE-ICON CSS
+ *****************************/
+
+/* Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt */
+
+html /deep/ core-icon {
+    display: inline-block;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    fill: currentcolor;
+    position: relative;
+    height: 24px;
+    width: 24px;
+}
+
+/*
+.paper-button{
+    display: inline-block;
+    position: relative;
+    border: none;
+    outline:none;
+    cursor: pointer;
+    background: #89669b;
+    padding: 18px 60px;
+    border-radius: 2px;
+    font-size: 22px;
+}
+*/
+.paper-button {
+    display: inline-block;
+    position: relative;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    min-width: 5.14em;
+    margin: 0.5em;
+    padding: 0.7em 0.6em;
+    background: transparent;
+    text-align: center;
+    font: inherit;
+    color: inherit;
+    text-transform: uppercase;
+    outline: none;
+    border: 1px dotted buttonface;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    z-index: 0;
+}
+.paper-button[disabled] {
+    /*
+    box-shadow:rgba(0, 0, 0, 0.3) 0 16px 16px 0;
+    -webkit-box-shadow:rgba(0, 0, 0, 0.3) 0 16px 16px 0;
+    -moz-box-shadow:rgba(0, 0, 0, 0.3) 0 16px 16px 0;
+    */
+    background: #eaeaea;
+    color: #a8a8a8;
+    cursor: auto;
+    pointer-events: none;
+}
+/*
+.paper-button > a {
+    height: 100%;
+    padding: 0.7em 0.57em;
+    -ms-flex: 1 1 0.000000001px;
+    -webkit-flex: 1;
+    flex: 1;
+    -webkit-flex-basis: 0.000000001px;
+    flex-basis: 0.000000001px;
+}
+*/
+
+/**********
+ * Ripple Effect: http://codepen.io/440design/pen/iEztk
+ */
+.ripplelink{
+    display:inline-block;
+    text-align:center;
+    text-decoration:none;
+    position:relative;
+    overflow:hidden;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    z-index:0;
+}
+.ripplelink:hover{
+    z-index:1000;
+}
+.ink {
+    display: block;
+    position: absolute;
+    /*background:rgba(255, 255, 255, 0.3);*/
+    background:rgba(150, 150, 150, 0.5);
+    border-radius: 100%;
+    -moz-border-radius: 100%;
+    -webkit-border-radius: 100%;
+    -webkit-transform:scale(0);
+    -moz-transform:scale(0);
+    -o-transform:scale(0);
+    transform:scale(0);
+}
+.animate {
+    -webkit-animation:ripple 0.5s linear;
+    -moz-animation:ripple 0.5s linear;
+    -o-animation:ripple 0.5s linear;
+    animation:ripple 0.5s linear;
+}
+@-webkit-keyframes ripple {
+    100% {opacity: 0; -webkit-transform: scale(2.5);}
+}
+@-moz-keyframes ripple {
+    100% {opacity: 0; -moz-transform: scale(2.5);}
+}
+@-o-keyframes ripple {
+    100% {opacity: 0; -o-transform: scale(2.5);}
+}
+@keyframes ripple {
+    100% {opacity: 0; transform: scale(2.5);}
 }

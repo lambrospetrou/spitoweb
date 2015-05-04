@@ -60,4 +60,12 @@ class SpitoEditor {
     }
   }
 
+  void focusInput() {
+    if (_mSpitType == 'text') {
+      (_mContainer.querySelector('#editor-text') as TextAreaElement).focus();
+    } else if (_mSpitType == 'url') {
+      (_mContainer.querySelector('#editor-url') as InputElement).focus();
+    }
+  }
+
 }
