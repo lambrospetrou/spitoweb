@@ -8,16 +8,16 @@
     <title>Spito Share v1.0</title>
 
     <!--<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">-->
-    <link rel="stylesheet" href="styles/jquery-ui_266782770b18a4f0c6a5042adfc36aa5.css">
+    <!--<link rel="stylesheet" href="styles/jquery-ui_266782770b18a4f0c6a5042adfc36aa5.css">-->
+    <link rel="stylesheet" href="js_libs/jquery/jquery-ui.min.css">
 
-    <link rel="stylesheet" href="styles/spito_combined.css">
-    <!--
+    <!--<link rel="stylesheet" href="styles/spito_combined.css">-->
+
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/style_view.css">
     <link rel="stylesheet" href="styles/style_drawer.css">
-    -->
-    <script src="packages/web_components/webcomponents.min.js"></script>
 
+    <script src="packages/web_components/webcomponents.min.js"></script>
     <link rel="import" href="js_libs/bower_components/paper-radio-group/paper-radio-group.html">
     <link rel="import" href="js_libs/bower_components/paper-icon-button/paper-icon-button.html">
 
@@ -41,8 +41,14 @@
                     </div>
                     <div id="site-header-tools">
                         <div id="site-header-tools-btn">
-                            <a href="#/"><paper-icon-button id="btnNewSpit" icon="create" title="Create new spit"></paper-icon-button></a>
-                            <a href="#/view/"><paper-icon-button id="btnFindSpit" icon="search" title="Search for a spit"></paper-icon-button></a>
+                            <!--<a href="#/"><paper-icon-button id="btnNewSpit" icon="create" title="Create new spit"></paper-icon-button></a>
+                            <a href="#/view/"><paper-icon-button id="btnFindSpit" icon="search" title="Search for a spit"></paper-icon-button></a>-->
+                            <a href="#/view/" class="paper-icon-button ripplelink" title="Create new spit">
+                                <svg viewBox="-8 -8 40 40" height="100%" width="100%" preserveAspectRatio="xMidYMid meet" fit="" style="pointer-events: none; display: block;"><g><path d="M3 17.25v3.75h3.75l11.06-11.06-3.75-3.75-11.06 11.06zm17.71-10.21c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"></path></g></svg>
+                            </a>
+                            <a href="#/" class="paper-icon-button ripplelink" title="Search for a spit">
+                                <svg viewBox="-8 -8 40 40" height="100%" width="100%" preserveAspectRatio="xMidYMid meet" fit="" style="pointer-events: none; display: block;"><g><path d="M15.5 14h-.79l-.28-.27c.98-1.14 1.57-2.62 1.57-4.23 0-3.59-2.91-6.5-6.5-6.5s-6.5 2.91-6.5 6.5 2.91 6.5 6.5 6.5c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99 1.49-1.49-4.99-5zm-6 0c-2.49 0-4.5-2.01-4.5-4.5s2.01-4.5 4.5-4.5 4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5z"></path></g></svg>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -86,11 +92,9 @@
                                 <div id="editor-tools-buttons">
                                     <ul>
                                         <li>
-                                            <!--<button type="submit" id="btnEditorCreate" title="Create a new Spit"><paper-button>create</paper-button></button>-->
                                             <button type="submit" id="btnEditorCreate" title="Create a new Spit" class="paper-button ripplelink">create</button>
                                         </li>
                                         <li>
-                                            <!--<button type="button" id="btnEditorClear" title="Clear Spit content"><paper-button>clear</paper-button></button>-->
                                             <button type="button" id="btnEditorClear" title="Clear Spit content" class="paper-button ripplelink">clear</button>
                                         </li>
                                     </ul>
@@ -110,7 +114,7 @@
                                     <input id="editor-url" class="editor-input-text" name="editor-text" type="url"
                                            spellcheck="true"
                                            autofocus required=""
-                                           placeholder="http(s)://yourdomain.com/a-very-long-path-"/>
+                                           placeholder="http(s)://yourdomain.com/a-long-url"/>
                                 </div>
 
                                 <div id="editor-tools-bottom">
@@ -184,6 +188,9 @@
                             <button class="paper-button ripplelink">Login</button>
                             <a class="paper-button ripplelink" href="">Login</a>
                             -->
+                            <a href="#/view/" class="paper-icon-button ripplelink" title="Search for a spit">
+                                <svg viewBox="-4 -4 32 32" height="100%" width="100%" preserveAspectRatio="xMidYMid meet" fit="" style="pointer-events: none; display: block;"><g><path d="M3 17.25v3.75h3.75l11.06-11.06-3.75-3.75-11.06 11.06zm17.71-10.21c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"></path></g></svg>
+                            </a>
                         </div>
 
                         <div id="about-page" class="content">
@@ -197,14 +204,13 @@
 
 </div> <!-- END of spitoshare-app -->
 
-    <script src="packages/web_components/dart_support.js"></script>
+    <script src="js_libs/jquery/jquery-1.11.2.min.js"></script>
+    <script src="js_libs/jquery/jquery-ui.min.js"></script> <!-- only slider -->
+    <script src="js_libs/jquery.ui.touch-punch.min.js"></script>
 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.min.js"></script>
-    <script defer async src="js_libs/jquery.ui.touch-punch.min.js"></script>
+    <script defer async src="js_libs/lp-material.js"></script>
 
-    <script async defer src="js_libs/lp-material.js"></script>
-
+    <script src="js_libs/dart_support.min.js"></script>
     <script type="application/dart" src="spitoshare_main.dart"></script>
 </body>
 </html>

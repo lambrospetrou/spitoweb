@@ -125,7 +125,8 @@ body {
   left: 0;
   height: 50px;
   width: 100%;
-  text-align: center;
+  text-align: left;
+    text-indent: 20px;
   font-size: 12px;
   color: #666666;
 }
@@ -487,19 +488,6 @@ html /deep/ core-icon {
     width: 24px;
 }
 
-/*
-.paper-button{
-    display: inline-block;
-    position: relative;
-    border: none;
-    outline:none;
-    cursor: pointer;
-    background: #89669b;
-    padding: 18px 60px;
-    border-radius: 2px;
-    font-size: 22px;
-}
-*/
 .paper-button[type="submit"],
 .paper-button[type="button"],
 .paper-button {
@@ -599,4 +587,34 @@ html /deep/ core-icon {
 }
 @keyframes ripple {
     100% {opacity: 0; transform: scale(2.5);}
+}
+
+.paper-icon-button {
+    display: inline-block;
+    position: relative;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    min-width: 48px;
+    min-height: 48px;
+    margin: 5px;
+    padding: 5px 5px;
+    background: transparent;
+    text-align: center;
+    font: inherit;
+    color: inherit;
+    text-transform: uppercase;
+    outline: none;
+    border: 1px dotted #00ffffff;
+    border-radius: 100%;
+    -moz-border-radius: 100%;
+    -webkit-border-radius: 100%;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    z-index: 0;
+    text-align: center;
+    vertical-align: middle;
 }
