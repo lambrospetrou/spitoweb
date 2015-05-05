@@ -154,7 +154,7 @@ void _fillSpitInformation(Spit spit) {
   if (spit.Expiration > 0) {
     var second = const Duration(seconds: 1);
     new Timer.periodic(second, (Timer timer){
-      int nowEpoch = new DateTime.now().millisecondsSinceEpoch/1000; // seconds
+      int nowEpoch = (new DateTime.now().millisecondsSinceEpoch/1000).ceil(); // seconds
       if (nowEpoch >= spit.Expiration) {
         spitInfo.querySelector('#spit-exp-time').text = 'expired';
         timer.cancel();
