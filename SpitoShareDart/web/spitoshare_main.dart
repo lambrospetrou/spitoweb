@@ -154,14 +154,23 @@ void _fillSpitInformation(Spit spit) {
   if (spit.Expiration > 0) {
     var second = const Duration(seconds: 1);
     new Timer.periodic(second, (Timer timer){
+      int nowEpoch = new DateTime.now().millisecondsSinceEpoch/1000; // seconds
+      if (nowEpoch >= spit.Expiration) {
+        spitInfo.querySelector('#spit-exp-time').text = 'expired';
+        timer.cancel();
+      } else {
+        spitInfo.querySelector('#spit-exp-time').text = (spit.Expiration-nowEpoch).toString();
+      }
+      /*
       int secs = new DateTime.now().difference(spit.DateCreated).inSeconds;
-      //window.console.log('${secs} ${new DateTime.now().toIso8601String()} ${spit.DateCreated}');
+      window.console.log('${secs} | ${new DateTime.now().millisecondsSinceEpoch/1000} | ${spit.Expiration} | ${spit.DateCreated}');
       if (spit.Expiration > secs) {
         spitInfo.querySelector('#spit-exp-time').text = (spit.Expiration-secs).toString();
       } else {
         spitInfo.querySelector('#spit-exp-time').text = 'expired';
         timer.cancel();
       }
+      */
     });
   } else {
     spitInfo.querySelector('#spit-exp-time').text = 'never';
