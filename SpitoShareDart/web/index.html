@@ -10,12 +10,12 @@
     <!--<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">-->
     <link rel="stylesheet" href="js_libs/jquery/jquery-ui.min.css">
 
-    <link rel="stylesheet" href="styles/spito_combined.css">
-<!--
+    <!--<link rel="stylesheet" href="styles/spito_combined.css">-->
+
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/style_view.css">
     <link rel="stylesheet" href="styles/style_drawer.css">
--->
+
     <script src="packages/web_components/webcomponents.min.js"></script>
     <link rel="import" href="js_libs/bower_components/paper-radio-group/paper-radio-group.html">
 
@@ -174,7 +174,8 @@
                                                 <li><span class="heading">clicks</span><span id="spit-clicks"></span></li>
                                             </ul>
                                         </section>
-                                        <textarea class="spit-content" id="spit-content" readonly></textarea>
+                                        <!--<textarea class="spit-content" id="spit-content" readonly></textarea>-->
+                                        <div class="spit-content" id="spit-content"></div>
                                     </section>
                                 </article>
 
@@ -232,13 +233,14 @@
 
                             <section>
                               <p><strong>Spito Share</strong> started as a fun project last year and I continued to add features, mostly improving the UI with materialish design.</p>
+                              <p>Spito Share backend consists of a REST API built using Go (#golang) language with Couchbase Server being my datastore. The front-end client (the one you are using right this moment) has been created using Google Dart, which I have been using for the last 2 years in all my projects. </br><em>Awesome combination I have to admit.</em></p>
                               <p>If you have any questions or want to talk to me for any reason (feedback extremely welcome) please contact me using any of the following methods:
                                 <ul>
                                   <li>Personal website: <a href="http://lambrospetrou.com/about" target="_blank">lambrospetrou.com</a></li>
                                   <li>Twitter: <a href="https://twitter.com/lambrospetrou" target="_blank">twitter.com/lambrospetrou</a></li>
                                 </ul>
                               </p>
-                              <p>I have plans to open source the project as soon as I find some time to refactor a bit the code (I guess in 1-2 months after I finish my MSc.CS @ University of Oxford).</p>
+                              <p>I have plans to open source the project as soon as I find some time to refactor a bit the code (I guess in 1-2 months after I finish my MSc. CS @ University of Oxford).</p>
                               <p>If you want to see my other open sourced projects please visit my <a href="http://github.com/lambrospetrou" target="_blank">Github profile</a>.</p>
                             </section>
 

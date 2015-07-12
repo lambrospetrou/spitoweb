@@ -149,8 +149,13 @@ void _fillSpitInformation(Spit spit) {
   if (qrcode != null) qrcode.src =
   'http://chart.apis.google.com/chart?chs=100x100&cht=qr&choe=UTF-8&chl=${spit.AbsoluteURL}';
 
-  //(spitInfo.querySelector('#spit-content') as TextAreaElement).text = spit.Content;
-  (spitInfo.querySelector('#spit-content') as TextAreaElement).value = spit.Content;
+  DivElement spitContent = (spitInfo.querySelector('#spit-content') as DivElement);
+  spitContent.innerHtml = "";
+  PreElement spitContentPre = new PreElement()..id="spit-content-pre";
+  spitContent.append(spitContentPre);
+  spitContentPre.text = spit.Content;
+
+  //(spitInfo.querySelector('#spit-content') as TextAreaElement).value = spit.Content;
   if (spit.Expiration > 0) {
     var second = const Duration(seconds: 1);
     new Timer.periodic(second, (Timer timer){

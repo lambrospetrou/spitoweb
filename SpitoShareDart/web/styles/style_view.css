@@ -139,6 +139,24 @@
     border: none;
     background-color: #fdfdfd;
 }
+  .spit-content pre {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    font-family: 'Open Sans', 'Lato', monospace;
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    outline: none;
+    border: 0;
+
+    white-space: pre-wrap;       /* css-3 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+  }
 
 .spit-meta-body {
     padding: 10px;
