@@ -1,2 +1,4 @@
-# spitoweb
-The web client for Spito, until I merge the two.
+# SpitoWeb
+The web client for Spi.To, until I merge this with the API repository (to be open sourced soon).
+
+Written in Google Dart!
