@@ -93,6 +93,11 @@ body {
   color: #920000;
 }
 
+.flex {
+    display: flex;
+    width: auto;
+}
+
 #spitoshare-app {
   padding: 0;
   margin: 0;
@@ -274,11 +279,13 @@ body {
     width: 100%;
     margin: 0;
     padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
 }
 
   #editor-tools-buttons {
-      float: left;
-      margin: 5px 0;
   }
   #editor-tools-buttons ul {
     list-style-type: none;
@@ -289,8 +296,16 @@ body {
     display: inline-block;
   }
   #input-mode-tools {
-      float: right;
-      margin: 5px 0;
+      margin-left: auto;
+  }
+
+  #spit-type-radio-group {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+  }
+  #spit-type-radio-group label {
+      padding-left: 10px;
   }
 
 #spito-editor {
@@ -396,8 +411,12 @@ body {
             display: inline-block;
         }
 
+        #editor-exp-val-unit-group input {
+            margin-left: 15px;
+        }
+
         #editor-exp-val-unit paper-radio-group paper-radio-button {
-            padding: 5px;
+            padding: 15px;
         }
         #editor-exp-val-unit paper-radio-group paper-radio-button::shadow #ink {
             width: 32px;
@@ -455,7 +474,9 @@ body {
         top: auto;
         vertical-align: middle;
     }
-
+    #editor-tools {
+        flex-direction: column;
+    }
     #editor-tools-buttons {
         float: none;
         text-align: center;
@@ -464,6 +485,7 @@ body {
     #input-mode-tools {
         float: none;
         text-align: center;
+        margin: auto;
     }
 }
 
@@ -597,6 +619,8 @@ html /deep/ core-icon {
     -webkit-box-sizing: border-box;
     min-width: 48px;
     min-height: 48px;
+    max-width: 48px;
+    max-height: 48px;
     margin: 5px;
     padding: 5px 5px;
     background: transparent;

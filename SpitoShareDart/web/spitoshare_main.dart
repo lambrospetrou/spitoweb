@@ -38,7 +38,7 @@ void main() {
     radioButton.onChange.listen((ev){
       Element radioButton = ev.target;
       window.console.log(radioButton);
-      spitEditor.setSpitType(radioButton.getAttribute('name'));
+      spitEditor.setSpitType(radioButton.getAttribute('value'));
     });
   });
 
@@ -232,12 +232,3 @@ void _handleNewSpitResultError(SpitoAPIResult err) {
 ///////////////////////////////////
 ///////////////////////////////////
 ///////////////////////////////////
-
-
-
-
-
-
-
-
-

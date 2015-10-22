@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="s/styles/style_drawer.css">
 
     <script src="packages/web_components/webcomponents.min.js"></script>
-    <link rel="import" href="s/js_libs/bower_components/paper-radio-group/paper-radio-group.html">
+    <!--<link rel="import" href="s/js_libs/bower_components/paper-radio-group/paper-radio-group.html">-->
 
 </head>
 <body>
@@ -82,13 +82,6 @@
 
                             <div id="editor-tools" class="group-clearfix">
 
-                                <div id="input-mode-tools">
-                                    <paper-radio-group id="spit-type-radio-group" selected="url">
-                                        <paper-radio-button name="url" value="url" label="URL shortener"></paper-radio-button>
-                                        <paper-radio-button name="text" value="text" label="Text &amp; Source Code"></paper-radio-button>
-                                    </paper-radio-group>
-                                </div>
-
                                 <div id="editor-tools-buttons">
                                     <ul>
                                         <li>
@@ -98,6 +91,13 @@
                                             <button type="button" id="btnEditorClear" title="Clear Spit content" class="paper-button ripplelink">clear</button>
                                         </li>
                                     </ul>
+                                </div>
+                                <div class="flex"></div>
+                                <div id="input-mode-tools">
+                                    <div id="spit-type-radio-group">
+                                        <label><input type="radio" name="input-mode" value="url" checked="checked"/><span>URL shortener</span></label>
+                                        <label><input type="radio" name="input-mode" value="text" /><span>Text &amp; Source Code</span></label>
+                                    </div>
                                 </div>
 
                             </div>
@@ -125,15 +125,22 @@
                                                 <div id="editor-exp-val">
                                                     <span id="editor-exp-val-text"></span>
                                                     <span id="editor-exp-val-value"></span>
-                                                <span id="editor-exp-val-unit">
-                                                    <paper-radio-group id="editor-exp-val-unit-group" selected="m">
-                                                        <paper-radio-button name="m"
-                                                                            label="Minutes"></paper-radio-button>
-                                                        <paper-radio-button name="h" label="Hours"></paper-radio-button>
-                                                        <paper-radio-button name="d" label="Days"></paper-radio-button>
-                                                        <paper-radio-button name="M" label="Months"></paper-radio-button>
-                                                    </paper-radio-group>
-                                                </span>
+                                                    <span id="editor-exp-val-unit">
+                                                        <div id="editor-exp-val-unit-group">
+                                                            <label><input type="radio" name="exp-val-units" value="h" checked="checked"/><span>Hours</span></label>
+                                                            <label><input type="radio" name="exp-val-units" value="d" /><span>Days</span></label>
+                                                            <label><input type="radio" name="exp-val-units" value="M" /><span>Months</span></label>
+                                                        </div>
+                                                        <!--
+                                                        <paper-radio-group  selected="m">
+                                                            <paper-radio-button name="m"
+                                                                                label="Minutes"></paper-radio-button>
+                                                            <paper-radio-button name="h" label="Hours"></paper-radio-button>
+                                                            <paper-radio-button name="d" label="Days"></paper-radio-button>
+                                                            <paper-radio-button name="M" label="Months"></paper-radio-button>
+                                                        </paper-radio-group>
+                                                    -->
+                                                    </span>
                                                 </div>
                                             </div>
                                         </li>

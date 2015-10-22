@@ -94,7 +94,7 @@ class ExpiryHandler {
       radioButton.onChange.listen((ev){
         Element radioButton = ev.target;
         window.console.log(radioButton);
-        _mExpiryUnit = (radioButton.getAttribute('name'));
+        _mExpiryUnit = (radioButton.getAttribute('value'));
       });
     });
   }
