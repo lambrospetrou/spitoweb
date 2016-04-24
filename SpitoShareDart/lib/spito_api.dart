@@ -18,7 +18,7 @@ class SpitoAPI {
   Future<SpitoAPIResult> CreateSpit(String content, String spit_type, int exp, String expMode) {
     int millis = new DateTime.now().millisecondsSinceEpoch;
 
-    window.console.log('expiration: ${_expireTime(exp, expMode)}');
+    //window.console.log('expiration: ${_expireTime(exp, expMode)}');
     exp = _expireTime(exp, expMode);
 
     FormData formData = new FormData()
@@ -42,7 +42,7 @@ class SpitoAPI {
         } else {
           SpitoAPIResult apiResult = new SpitoAPIResult(
               RES_FAIL, 'The response is not OK:200 [${res.responseText}}]', null, res
-          )..Duration = duration;;
+          )..Duration = duration;
           completer.completeError(apiResult);
         }
       })
@@ -68,7 +68,7 @@ class SpitoAPI {
         } else {
           SpitoAPIResult apiResult = new SpitoAPIResult(
               RES_FAIL, 'The response is not OK:200 [${res.responseText}]', null, res
-          )..Duration = duration;;
+          )..Duration = duration;
           completer.completeError(apiResult);
         }
       })
@@ -89,9 +89,9 @@ class SpitoAPI {
 class Spit {
   String _mId;
   String _mContent;
-  int _mExp;
   String _mSpitType;
-  DateTime _mDateCreated;
+  String _mDateExpiration;
+  String _mDateCreated;
   bool _mIsUrl;
   String _mAbsUrl;
   int _mClicks;
@@ -112,30 +112,21 @@ class Spit {
   Spit.fromJson(String json) {
     Map jsonMap = JSON.decode(json);
     this._mId = jsonMap['id'];
-    this._mExp = jsonMap['expiration'];
+    this._mDateExpiration = jsonMap['date_expiration'];
+    this._mDateCreated = jsonMap['date_created'];
     this._mContent = jsonMap['content'];
     this._mSpitType = jsonMap['spit_type'];
     this._mIsUrl = jsonMap['is_url'];
     this._mAbsUrl = jsonMap['absolute_url'];
     this._mClicks = jsonMap['clicks'];
-    // date is taken by GO server as: 2015-02-07 00:06:00.44145677Z
-    // but Dart DateTime can only parse 3 digits of milliseconds
-    String dateStr = jsonMap['date_created'];
-    window.console.log(dateStr);
-    int lastDot = dateStr.lastIndexOf('.');
-    String dateMillis = dateStr.substring(lastDot+1);
-    dateMillis = dateMillis.length > 3 ? dateMillis.substring(0,3) : dateMillis;
-    //dateStr = dateStr.substring(0, lastDot+1) + dateMillis + 'Z';
-    dateStr = dateStr.substring(0, lastDot+1) + dateMillis;
-    this._mDateCreated = DateTime.parse(dateStr);
   }
 
   String get Id => this._mId;
   String get Content => this._mContent;
   String get SpitType => this._mSpitType;
-  int get Expiration => this._mExp;
   int get Clicks => this._mClicks;
-  DateTime get DateCreated => this._mDateCreated;
+  DateTime get DateExpiration => DateTime.parse(this._mDateExpiration);
+  DateTime get DateCreated => DateTime.parse(this._mDateCreated);
   bool get IsUrl => this._mIsUrl;
   String get AbsoluteURL => this._mAbsUrl;
 }

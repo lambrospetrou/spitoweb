@@ -13,8 +13,8 @@ void main() {
   NavDrawer menuDrawer = new NavDrawer(querySelector('#site-header-drawer'),
       querySelector('.gn-menu-wrapper'), querySelector('.gn-menu-shadow'));
 
-  //SpitoAPI spitoApi = new SpitoAPI("http://localhost:40090/");
-  SpitoAPI spitoApi = new SpitoAPI("http://spi.to/");
+  SpitoAPI spitoApi = new SpitoAPI("http://localhost:40090/");
+  //SpitoAPI spitoApi = new SpitoAPI("http://spi.to/");
   SpitoEditor spitEditor = new SpitoEditor(querySelector('#home-page'), SpitoEditor.SPIT_URL);
 
   // CREATE SPIT - LISTENERS
@@ -37,7 +37,6 @@ void main() {
   radioGroupSpitType.children.forEach((radioButton) {
     radioButton.onChange.listen((ev){
       Element radioButton = ev.target;
-      window.console.log(radioButton);
       spitEditor.setSpitType(radioButton.getAttribute('value'));
     });
   });
@@ -77,7 +76,7 @@ void main() {
 }
 
 void _viewPageHandler(SpitoAPI spitoApi, String id) {
-  window.console.info('main controller:: view :: ${id}');
+  //window.console.info('main controller:: view :: ${id}');
   // show search page
   _hideCurrentContent();
   _setCurrentContent(querySelector('#view-page'));
@@ -85,7 +84,7 @@ void _viewPageHandler(SpitoAPI spitoApi, String id) {
 }
 
 void _homePageHandler(String path) {
-  window.console.info('main controller:: home :: ${path}');
+  //window.console.info('main controller:: home :: ${path}');
   _hideCurrentContent();
   _setCurrentContent(querySelector('#home-page'));
 }
@@ -109,7 +108,7 @@ void _setCurrentContent(Element el) {
 }
 
 void anyPageHandler (String path) {
-  window.console.info('main controller:: any :: ${path}');
+  //window.console.info('main controller:: any :: ${path}');
 }
 
 void getAndShowSpit(SpitoAPI spitoApi, String id, Function whenCompleteCallback) {
@@ -117,7 +116,7 @@ void getAndShowSpit(SpitoAPI spitoApi, String id, Function whenCompleteCallback)
   querySelector('#view-spit-errors').classes.add('disabled-element');
   if (id != null && !id.trim().isEmpty ) {
     spitoApi.GetSpit(id).then((SpitoAPIResult result) {
-      window.console.log(result);
+      //window.console.log(result);
 
       // update the Spit information
       _fillSpitInformation(result.Spit);
@@ -127,7 +126,7 @@ void getAndShowSpit(SpitoAPI spitoApi, String id, Function whenCompleteCallback)
 
       querySelector('#view-spit-information').classes.remove('disabled-element');
     }).catchError((err) {
-      window.console.info(err);
+      //window.console.error(err);
       if (err is SpitoAPIResult) {
         querySelector('#view-spit-errors').text = (err as SpitoAPIResult).Response.responseText;
       } else {
@@ -155,27 +154,26 @@ void _fillSpitInformation(Spit spit) {
   spitContent.append(spitContentPre);
   spitContentPre.text = spit.Content;
 
+  String oldURL = window.location.toString();
+
   //(spitInfo.querySelector('#spit-content') as TextAreaElement).value = spit.Content;
-  if (spit.Expiration > 0) {
-    var second = const Duration(seconds: 1);
-    new Timer.periodic(second, (Timer timer){
-      int nowEpoch = (new DateTime.now().millisecondsSinceEpoch/1000).ceil(); // seconds
-      if (nowEpoch >= spit.Expiration) {
+  if (spit.DateExpiration.isAfter(spit.DateCreated)) {
+    // There is an expiration set up
+    var second = const Duration(milliseconds: 300);
+    new Timer.periodic(second, (Timer timer) {
+      if (window.location.toString() != oldURL) {
+        // the spit changed so cancel this timer
+        timer.cancel();
+        return;
+      }
+      int nowEpoch = (new DateTime.now().toUtc().millisecondsSinceEpoch/1000).ceil(); // seconds
+      int expireEpoch = (spit.DateExpiration.millisecondsSinceEpoch/1000).ceil();
+      if (nowEpoch >= expireEpoch) {
         spitInfo.querySelector('#spit-exp-time').text = 'expired';
         timer.cancel();
       } else {
-        spitInfo.querySelector('#spit-exp-time').text = (spit.Expiration-nowEpoch).toString();
+        spitInfo.querySelector('#spit-exp-time').text = (expireEpoch-nowEpoch).toString();
       }
-      /*
-      int secs = new DateTime.now().difference(spit.DateCreated).inSeconds;
-      window.console.log('${secs} | ${new DateTime.now().millisecondsSinceEpoch/1000} | ${spit.Expiration} | ${spit.DateCreated}');
-      if (spit.Expiration > secs) {
-        spitInfo.querySelector('#spit-exp-time').text = (spit.Expiration-secs).toString();
-      } else {
-        spitInfo.querySelector('#spit-exp-time').text = 'expired';
-        timer.cancel();
-      }
-      */
     });
   } else {
     spitInfo.querySelector('#spit-exp-time').text = 'never';
@@ -214,14 +212,14 @@ void _handleNewSpitResult(SpitoAPIResult result) {
 }
 
 void _handleNewSpitResultError(SpitoAPIResult err) {
-  window.console.error(err.Message);
+  //window.console.error(err.Message);
   try {
     Map errJson = JSON.decode(err.Response.responseText);
     StringBuffer sb = new StringBuffer();
     for (String msg in errJson['errors']) { sb.write(msg); }
     querySelector('#new-spit-errors').text = sb.toString();
   } on FormatException catch (e) {
-    querySelector('#new-spit-errors').text = err.Message;
+    querySelector('#new-spit-errors').text = err.Message + "[${e}]";
   } catch (e, stackTrace) {
     querySelector('#new-spit-errors').text = 'Unrecognized error: ${e}';
     window.console.error(stackTrace);

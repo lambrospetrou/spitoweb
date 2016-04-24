@@ -34,19 +34,15 @@ class NavDrawer {
     this._mMenuShadow.classes.add('display-none');
   }
 
-  void _bodyClickFn() {
-    this._closeMenu();
-  }
-
   void _openMenu() {
-    if(this._mIsMenuOpen) return;
+    if (this._mIsMenuOpen) return;
     this._mMenuShadow.classes.add('gn-shadow-open');
     this._mIsMenuOpen = true;
     this._mMenuDrawer.classes.add('gn-open-all');
   }
 
   void _closeMenu() {
-    if(!this._mIsMenuOpen) return;
+    if (!this._mIsMenuOpen) return;
     this._mMenuShadow.classes.remove('gn-shadow-open');
     this._mIsMenuOpen = false;
     this._mMenuDrawer.classes.remove('gn-open-all');

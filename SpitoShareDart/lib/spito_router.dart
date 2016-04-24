@@ -55,37 +55,37 @@ class SpitoRouter {
   }
 
   void _redirectToHome(String path) {
-    window.console.log('home: ${path} redirecting to proper home');
+    //window.console.log('home: ${path} redirecting to proper home');
     gotoHome();
   }
 
   void _showView(String path) {
-    window.console.log('view: ${path}');
+    //window.console.log('view: ${path}');
     var id = _mViewSpitUrl.parse(path)[0];
-    window.console.log(id);
+    //window.console.log(id);
     if (_fnOnViewHandler != null) _fnOnViewHandler(id);
   }
 
   void _showHome(String path) {
-    window.console.log('home: ${path}');
+    //window.console.log('home: ${path}');
     var actualHash = _mHomeUrl.parse(path);
-    window.console.log('home: ${actualHash}');
-    window.console.log('home: ${actualHash[0]}');
+    //window.console.log('home: ${actualHash}');
+    //window.console.log('home: ${actualHash[0]}');
     if (_fnOnHomeHandler != null) _fnOnHomeHandler(path);
   }
 
   void _showFAQ(String path) {
-    window.console.log('faq: ${path}');
+    //window.console.log('faq: ${path}');
     if (_fnOnFAQHandler != null) _fnOnFAQHandler();
   }
 
   void _showAbout(String path) {
-    window.console.log('about: ${path}');
+    //window.console.log('about: ${path}');
     if (_fnOnAboutHandler != null) _fnOnAboutHandler();
   }
 
   void _showAny(String path) {
-    window.console.log('any: ${path}');
+    //window.console.log('any: ${path}');
     if (_fnOnAnyHandler != null) _fnOnAnyHandler(path);
   }
 

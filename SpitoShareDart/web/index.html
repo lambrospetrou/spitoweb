@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spito Share v1.0</title>
+    <title>Spito Share v1.1</title>
 
     <!--<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">-->
     <link rel="stylesheet" href="s/js_libs/jquery/jquery-ui.min.css">
@@ -17,8 +17,7 @@
     <link rel="stylesheet" href="s/styles/style_drawer.css">
 
     <script src="packages/web_components/webcomponents.min.js"></script>
-    <!--<link rel="import" href="s/js_libs/bower_components/paper-radio-group/paper-radio-group.html">-->
-
+    <script src="packages/web_components/dart_support.js"></script>
 </head>
 <body>
 
@@ -131,15 +130,6 @@
                                                             <label><input type="radio" name="exp-val-units" value="d" /><span>Days</span></label>
                                                             <label><input type="radio" name="exp-val-units" value="M" /><span>Months</span></label>
                                                         </div>
-                                                        <!--
-                                                        <paper-radio-group  selected="m">
-                                                            <paper-radio-button name="m"
-                                                                                label="Minutes"></paper-radio-button>
-                                                            <paper-radio-button name="h" label="Hours"></paper-radio-button>
-                                                            <paper-radio-button name="d" label="Days"></paper-radio-button>
-                                                            <paper-radio-button name="M" label="Months"></paper-radio-button>
-                                                        </paper-radio-group>
-                                                    -->
                                                     </span>
                                                 </div>
                                             </div>
@@ -181,7 +171,6 @@
                                                 <li><span class="heading">clicks</span><span id="spit-clicks"></span></li>
                                             </ul>
                                         </section>
-                                        <!--<textarea class="spit-content" id="spit-content" readonly></textarea>-->
                                         <div class="spit-content" id="spit-content"></div>
                                     </section>
                                 </article>
@@ -195,11 +184,10 @@
                               </br>In case you have a question not covered here don't hesitate to <a href="#/about/">contact me</a>.</p>
 
                             <ul>
-
                               <li>
                                 <h3>What is a this ?</h3>
                                 <p><em>Spito Share</em> is a super-fast minimalistic URL shortener service and a text/source code sharing service. In a few words, you can share either a long URL or any text you want with your friends or colleagues using the short generated Spit link (spi.to/xxx).</p>
-                                <p>Although it is not a commercial product feel free to use it for your own projects or personal social media sharing needs. I promise that even if I switch the project's internals/back-end to another framework or server I will keep the active/alive links reachable.</p>
+                                <p>Although it is not a commercial product feel free to use it for your own projects or personal social media sharing needs. As soon as the project is out of Beta, I promise that even if I switch the project's internals/back-end to another framework or server I will keep the active/alive links reachable.</p>
                               </li>
 
                               <li>
@@ -222,11 +210,6 @@
                                 <h3>What is the point of the <em>Text & Source Code</em> type of Spit ?</h3>
                                 <p>At the moment it seems to be just like a big text box where you can put your text or source code and get a shareable link for it to allow easy sharing with others. Soon more features will be added like code syntax highlighting. The goal is to have a minimalistic plain text or source code sharing tool, like a stripped-down version of <a href="https://gist.github.com/" target="_blank">Gists</a>.</p>
                               </li>
-
-                              <li>
-                                <h3>Is there any public API I can use ?</h3>
-                                <p><em>Yes</em></br>Visit our <a href="#/developer">Developer</a> section (coming soon).</p>
-                              </li>
                             </ul>
                             <!--
                             <a href="#/view/" class="paper-icon-button ripplelink" title="Search for a spit">
@@ -240,14 +223,16 @@
 
                             <section>
                               <p><strong>Spito Share</strong> started as a fun project last year and I continued to add features, mostly improving the UI with materialish design.</p>
-                              <p>Spito Share backend consists of a REST API built using Go (#golang) language with Couchbase Server being my datastore. The front-end client (the one you are using right this moment) has been created using Google Dart, which I have been using for the last 2 years in all my projects. </br><em>Awesome combination I have to admit.</em></p>
+                              <p>Spito Share backend initially consisted of a REST API built using Go (#golang) language with Couchbase Server as datastore. The front-end client (the one you are using right this moment) has been created using Google Dart, which I have been using for the last couple years in all my projects. </br><em>Awesome combination I have to admit.</em> 
+                              <p>Really it was, but now I am not using Dart so much due to low acceptance by the world :)</p>
                               <p>If you have any questions or want to talk to me for any reason (feedback extremely welcome) please contact me using any of the following methods:
                                 <ul>
-                                  <li>Personal website: <a href="http://lambrospetrou.com/about" target="_blank">lambrospetrou.com</a></li>
+                                  <li>Personal website: <a href="https://lambrospetrou.com" target="_blank">lambrospetrou.com</a></li>
                                   <li>Twitter: <a href="https://twitter.com/lambrospetrou" target="_blank">twitter.com/lambrospetrou</a></li>
                                 </ul>
                               </p>
-                              <p>I have plans to open source the project as soon as I find some time to refactor a bit the code (I guess in 1-2 months after I finish my MSc. CS @ University of Oxford).</p>
+                              <p>The source code of this project and its API can be found in my Github account. I have to warn you though that the code for the client is really old and does not follow best practices :)<br/><a href="http://github.com/lambrospetrou/spitoweb" target="_blank">Spito web client</a> &mdash; <a href="http://github.com/lambrospetrou/spito" target="_blank">Spito API</a>
+                              </p>
                               <p>If you want to see my other open sourced projects please visit my <a href="http://github.com/lambrospetrou" target="_blank">Github profile</a>.</p>
                             </section>
 
@@ -265,8 +250,7 @@
     <script src="s/js_libs/jquery.ui.touch-punch.min.js"></script>
 
     <script defer async src="s/js_libs/lp-material.js"></script>
-
-    <script src="s/js_libs/dart_support.min.js"></script>
-    <script type="application/dart" src="spitoshare_main.dart"></script>
+    <!--<script type="application/dart" src="spitoshare_main.dart"></script>-->
+    <script src="spitoshare_main.js"></script>
 </body>
 </html>

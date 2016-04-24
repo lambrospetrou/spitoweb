@@ -209,7 +209,7 @@
       <excludeFolder url="file://$MODULE_DIR$/web/js_libs/bower_components/webcomponentsjs/tests/tools/mocha/packages" />
       <excludeFolder url="file://$MODULE_DIR$/web/js_libs/bower_components/webcomponentsjs/tests/tools/packages" />
       <excludeFolder url="file://$MODULE_DIR$/web/js_libs/bower_components/webcomponentsjs/workbench/packages" />
-      <excludeFolder url="file://$MODULE_DIR$/web/js_libs/noUiSlider.7.0.9/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/web/js_libs/jquery/packages" />
       <excludeFolder url="file://$MODULE_DIR$/web/js_libs/packages" />
       <excludeFolder url="file://$MODULE_DIR$/web/packages" />
       <excludeFolder url="file://$MODULE_DIR$/web/styles/packages" />
