@@ -63,8 +63,8 @@ void main() {
   });
 
   // setup routing to listen for changes to the URL.
-  print('loc: ${window.location}');
-  print('pathname: ${window.location.pathname}');
+  //print('loc: ${window.location}');
+  //print('pathname: ${window.location.pathname}');
 
   SpitoRouter router = new SpitoRouter(window.location.pathname);
   router.OnViewHandler = (String id) => _viewPageHandler(spitoApi, id);
