@@ -13,8 +13,9 @@ void main() {
   NavDrawer menuDrawer = new NavDrawer(querySelector('#site-header-drawer'),
       querySelector('.gn-menu-wrapper'), querySelector('.gn-menu-shadow'));
 
-  SpitoAPI spitoApi = new SpitoAPI("http://localhost:40090/");
-  //SpitoAPI spitoApi = new SpitoAPI("http://spi.to/");
+  //SpitoAPI spitoApi = new SpitoAPI("http://localhost:40090/");
+  //SpitoAPI spitoApi = new SpitoAPI("http://spito-api-beta.eu-west-1.elasticbeanstalk.com/");
+  SpitoAPI spitoApi = new SpitoAPI("http://spi.to/");
   SpitoEditor spitEditor = new SpitoEditor(querySelector('#home-page'), SpitoEditor.SPIT_URL);
 
   // CREATE SPIT - LISTENERS
